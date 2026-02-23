@@ -11,12 +11,12 @@
   },
   "2": {
     "id": 2,
-    "modified": "2026-02-23 20:27:00",
-    "title": "Test page",
-    "slug": "test-site",
+    "modified": "2026-02-23 20:31:52",
+    "title": "About us",
+    "slug": "about-us",
     "type": "page",
     "author": "admin",
-    "excerpt": "You are currently viewing a sample page that was created automatically during the WordPress installation. Pages differ from posts in that they contain some static text and are displayed in the same place on the website (for most templates, this is the navigation menu). People usually first create basic information pages where they introduce themselves &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/en/test-site/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> \"Test page\"</span></a></p>",
+    "excerpt": "You are currently viewing a sample page that was created automatically during the WordPress installation. Pages differ from posts in that they contain some static text and are displayed in the same place on the website (for most templates, this is the navigation menu). People usually first create basic information pages where they introduce themselves &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/en/about-us/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> \"About us\"</span></a></p>",
     "lang": "en"
   },
   "3": {
