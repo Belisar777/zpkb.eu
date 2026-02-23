@@ -11,12 +11,12 @@
   },
   "2": {
     "id": 2,
-    "modified": "2026-02-23 18:06:21",
-    "title": "Stránka testovací",
+    "modified": "2026-02-23 20:27:00",
+    "title": "O nás",
     "slug": "zkusebni-stranka",
     "type": "page",
     "author": "admin",
-    "excerpt": "Právě si prohlížíte ukázkovou stránku, která byla vytvořena automaticky během instalace WordPressu. Stránky se liší od příspěvků zejména tím, že obsahují nějaký statický text a jsou zobrazovány na stále stejném místě webu (u většiny šablon jde o navigační menu). Lidé obvykle nejdříve vytvářejí základní informační stránky, kde se představí návštěvníkům webu a seznámí je se &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/cs/zkusebni-stranka/\" class=\"more-link\">Pokračovat ve čtení<span class=\"screen-reader-text\"> \"Stránka testovací\"</span></a></p>",
+    "excerpt": "Právě si prohlížíte ukázkovou stránku, která byla vytvořena automaticky během instalace WordPressu. Stránky se liší od příspěvků zejména tím, že obsahují nějaký statický text a jsou zobrazovány na stále stejném místě webu (u většiny šablon jde o navigační menu). Lidé obvykle nejdříve vytvářejí základní informační stránky, kde se představí návštěvníkům webu a seznámí je se &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/cs/zkusebni-stranka/\" class=\"more-link\">Pokračovat ve čtení<span class=\"screen-reader-text\"> \"O nás\"</span></a></p>",
     "lang": "cs"
   },
   "3": {
