@@ -1,0 +1,22 @@
+{
+  "name": "zpkb.eu",
+  "version": "1.0.0",
+  "description": "Demo pro automatickou publikaci stránek z wordpressu",
+  "homepage": "https://github.com/Belisar777/zpkb.eu#readme",
+  "bugs": {
+    "url": "https://github.com/Belisar777/zpkb.eu/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belisar777/zpkb.eu.git"
+  },
+  "license": "ISC",
+  "author": "Ing. Stanislav Šec",
+  "type": "commonjs",
+  "main": "build.js",
+  "scripts": {
+    "build": "node --env-file=.env build.js",
+    "clean": "rm -r zpkb.eu/cs zpkb.eu/en cache*",
+    "docker": "cd /home/sec/Docker/minWordpress && docker-compose up"
+  }
+}
