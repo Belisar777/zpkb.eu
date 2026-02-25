@@ -16,7 +16,7 @@
     "slug": "about-us",
     "type": "page",
     "author": "admin",
-    "excerpt": "You are currently viewing a sample page that was created automatically during the WordPress installation. Pages differ from posts in that they contain some static text and are displayed in the same place on the website (for most templates, this is the navigation menu). People usually first create basic information pages where they introduce themselves &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/en/about-us/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> \"About us\"</span></a></p>",
+    "excerpt": "You are currently viewing a sample page that was created automatically during the WordPress installation. Pages differ from posts in that they contain some static text and are displayed in the same place on the website (for most templates, this is the navigation menu). People usually first create basic information pages where they introduce themselves [&hellip;]",
     "lang": "en"
   },
   "3": {
@@ -26,7 +26,7 @@
     "slug": "personal-data-protection",
     "type": "page",
     "author": "admin",
-    "excerpt": "Privacy Policy Recommended text: Our website address is: https://admin.zpkb.eu. Comments Recommended text: When visitors leave comments on this site, the data shown in the comment form is collected, as well as the visitor&#8217;s IP address and a user agent string that identifies the browser, which helps to detect spam. An anonymous string created from your &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/en/personal-data-protection/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> \"Page protection\"</span></a></p>",
+    "excerpt": "Privacy Policy Recommended text: Our website address is: https://admin.zpkb.eu. Comments Recommended text: When visitors leave comments on this site, the data shown in the comment form is collected, as well as the visitor&#8217;s IP address and a user agent string that identifies the browser, which helps to detect spam. An anonymous string created from your [&hellip;]",
     "lang": "en"
   },
   "9": {
@@ -56,7 +56,7 @@
     "slug": "contacts",
     "type": "page",
     "author": "admin",
-    "excerpt": "The Stories Podcast Storytelling, expert analysis, and vivid descriptions. The Stories Podcast brings history to life, making it accessible and engaging for a global audience. Subscribe on your favorite platform YouTube Apple Podcasts Spotify Pocket Casts RSS About the event Held over a weekend, the event is structured around a series of exhibitions, workshops, and &hellip; <p class=\"link-more\"><a href=\"https://admin.zpkb.eu/en/contacts/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> \"Contacts\"</span></a></p>",
+    "excerpt": "The Stories Podcast Storytelling, expert analysis, and vivid descriptions. The Stories Podcast brings history to life, making it accessible and engaging for a global audience. Subscribe on your favorite platform YouTube Apple Podcasts Spotify Pocket Casts RSS About the event Held over a weekend, the event is structured around a series of exhibitions, workshops, and [&hellip;]",
     "lang": "en"
   }
 }
