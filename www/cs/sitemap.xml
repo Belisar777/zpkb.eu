@@ -3,19 +3,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-02-25T16:37:41.028Z</lastmod>
+    <lastmod>2026-02-25T17:32:19.587Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/cs/o-nas.html</loc>
-    <lastmod>2026-02-24T14:38:01.000Z</lastmod>
+    <loc>https://zpkb.eu/cs/kontakty.html</loc>
+    <lastmod>2026-02-25T16:21:58.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/cs/kontakty.html</loc>
-    <lastmod>2026-02-23T19:33:43.000Z</lastmod>
+    <loc>https://zpkb.eu/cs/o-nas.html</loc>
+    <lastmod>2026-02-25T15:41:10.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
