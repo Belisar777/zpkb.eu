@@ -254,7 +254,7 @@ async function buildOneLanguage(lang) {
     const finalHtml = injectToTemplate(templateHtml, pageContent, { ...pageMeta, menu: menuInner });
     fs.writeFileSync(path.join(lang.outDir, fileName), finalHtml, ENCODING);
 
-    delete pageMeta.content; // do cache neukládáme velká těla
+    // delete pageMeta.content; // do cache neukládáme velká těla
   });
 
   // 5) Jazykový index a 404 (v /cs/ a /en/)
