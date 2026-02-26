@@ -15,9 +15,9 @@ const ENCODING = 'utf8';
 
 // Jazyky – každý má vlastní složku pro HTML i prefix v URL.
 const LANGS = [
-  { code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Domů', notFoundTitle: '404' },
   { code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'Home', notFoundTitle: '404' },
   { code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Maison', notFoundTitle: '404' },
+  { code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Domů', notFoundTitle: '404' },
 ];
 
 // =======================
@@ -42,8 +42,6 @@ function copyDirRecursive(src, dest, excludeFile) {
 function generateLanguageRedirect(langs) {
   const targetPath = path.join(ROOT_DIST, 'index.html');
 
-  // Sestavení JS logiky pro redirect
-  // Poslední jazyk v poli bereme jako defaultní fallback
   const defaultLang = langs[langs.length - 1];
   const redirectLogic = langs.slice(0, -1).map(l =>
     `if (short === "${l.code}") location.href = "${l.urlPrefix}/";`
