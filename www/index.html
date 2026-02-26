@@ -5,14 +5,14 @@
   <title>Redirecting...</title>
   <script>
     const short = (navigator.language || "en").toLowerCase().substring(0, 2);
-    if (short === "cs") location.href = "cs/";
     if (short === "en") location.href = "en/";
-    location.href = "fr/";
+    if (short === "fr") location.href = "fr/";
+    location.href = "cs/";
   </script>
 </head>
 <body>
   <noscript>
-    <a href="cs/">CS</a> <a href="en/">EN</a> <a href="fr/">FR</a>
+    <a href="en/">EN</a> <a href="fr/">FR</a> <a href="cs/">CS</a>
   </noscript>
 </body>
 </html>
