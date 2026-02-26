@@ -16,7 +16,7 @@
   "main": "build.js",
   "scripts": {
     "build": "node --env-file=.env build.js",
-    "clean": "rm -r zpkb.eu/cs zpkb.eu/en cache*",
+    "clean": "rm -r www cache*; mkdir www",
     "docker": "cd /home/sec/Docker/minWordpress && docker-compose up"
   }
 }
