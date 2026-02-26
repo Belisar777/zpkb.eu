@@ -238,7 +238,7 @@ function generateArticleListHtml(indexData) {
       <article class="article-card">
         ${imgHtml}
         <div class="article-body">
-          <h3><a href="${post.slug}.html">${post.title}</a></h3>
+          <h3><a href="${post.lang}/${post.slug}.html">${post.title}</a></h3>
           <p class="article-excerpt">${post.excerpt}</p>
           <a href="${post.lang}/${post.slug}.html" class="btn-more">
           <svg class="bx">
