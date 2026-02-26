@@ -5,8 +5,8 @@
   <title>Redirecting...</title>
   <script>
     const short = (navigator.language || "en").toLowerCase().substring(0, 2);
-    if (short === "cs") return location.href = "cs/";
-    if (short === "en") return location.href = "en/";
+    if (short === "cs") location.href = "cs/";
+    if (short === "en") location.href = "en/";
     location.href = "fr/";
   </script>
 </head>
