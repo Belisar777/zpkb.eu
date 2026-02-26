@@ -15,9 +15,9 @@ const ENCODING = 'utf8';
 
 // Jazyky – každý má vlastní složku pro HTML i prefix v URL.
 const LANGS = [
-  { code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'Home', notFoundTitle: '404' },
-  { code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Maison', notFoundTitle: '404' },
-  { code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Domů', notFoundTitle: '404' },
+  { code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'News', notFoundTitle: '404 - Page not found' },
+  { code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Nouvelles', notFoundTitle: '404 - Page introuvable' },
+  { code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Novinky', notFoundTitle: '404 - Stránka nenalezena' },
 ];
 
 // =======================
@@ -215,6 +215,41 @@ ${sitemapsXml}
 `);
 }
 
+/**
+ * Vygeneruje HTML seznamu článků seřazený od nejnovějšího
+ */
+function generateArticleListHtml(indexData) {
+  // 1. Filtrace pouze na články a seřazení podle data (od nejnovějšího)
+  // Předpokládáme, že datum v cache je ve formátu "YYYY-MM-DD HH:MM:SS"
+  const sortedPosts = indexData
+    .filter(item => item.type === 'post')
+    .sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
+
+  if (sortedPosts.length === 0) return '';
+
+  let html = '<div class="article-list">';
+
+  sortedPosts.forEach(post => {
+    // Obrázek (pokud existuje)
+    const imgHtml = post.featured_image
+      ? `<div class="article-img"><img src="${post.featured_image}" alt="${post.title}" loading="lazy"></div>`
+      : '';
+
+    html += `
+      <article class="article-card">
+        ${imgHtml}
+        <div class="article-body">
+          <h3><a href="${post.slug}.html">${post.title}</a></h3>
+          <p class="article-excerpt">${post.excerpt}</p>
+          <a href="${post.slug}.html" class="myBarItem btn-more">ČÍST VÍCE</a>
+        </div>
+      </article><hr>`;
+  });
+
+  html += '</div>';
+  return html;
+}
+
 // =======================
 // BUILD PRO JEDEN JAZYK
 // =======================
@@ -289,14 +324,26 @@ async function buildOneLanguage(lang) {
     // delete pageMeta.content; // do cache neukládáme velká těla
   });
 
-  // 5) Jazykový index a 404 (v /cs/ a /en/)
+  // 5) Jazykový index a 404 (v /cs/ a atd)
+
+  // Vygenerujeme seznam článků pro konkrétní jazyk
+  // (indexData by měla v této části už obsahovat jen data pro daný jazyk)
+  const articleListHtml = generateArticleListHtml(allItemsData);
+
   const indexHtml = injectToTemplate(
     templateHtml,
-    `<h2>${lang.homeTitle}</h2>`,
-    { title: lang.homeTitle, menu: menuInner, lang: lang.code }
+    `<h2>${lang.homeTitle}</h2>${articleListHtml}`, // Přidán seznam článků za nadpis
+    {
+      title: lang.homeTitle,
+      menu: menuInner,
+      lang: lang.code
+    }
   );
-  fs.writeFileSync(path.join(lang.outDir, 'index.html'), indexHtml, ENCODING);
 
+  // Ujisti se, že výstupní složka existuje
+  if (!fs.existsSync(lang.outDir)) fs.mkdirSync(lang.outDir, { recursive: true });
+
+  fs.writeFileSync(path.join(lang.outDir, 'index.html'), indexHtml, ENCODING);
   const errorHtml = injectToTemplate(
     templateHtml,
     `<h2>${lang.notFoundTitle}</h2>`,
