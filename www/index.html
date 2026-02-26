@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting…</title>
+  <title>Redirecting...</title>
   <script>
-    // Získání jazyka prohlížeče (např. "cs-CZ", "en-US")
-    const lang = navigator.language || navigator.userLanguage;
-
-    // Normalizace na dvoupísmenný kód
-    const short = lang.toLowerCase().substring(0, 2);
-
-    // Přesměrování podle jazyka
-    if (short === "cs") {
-      window.location.href = "cs/";
-    } else {
-      window.location.href = "en/";
-    }
+    const short = (navigator.language || "en").toLowerCase().substring(0, 2);
+    if (short === "cs") return location.href = "cs/";
+    if (short === "en") return location.href = "en/";
+    location.href = "fr/";
   </script>
 </head>
-
 <body>
+  <noscript>
+    <a href="cs/">CS</a> <a href="en/">EN</a> <a href="fr/">FR</a>
+  </noscript>
 </body>
-
 </html>
