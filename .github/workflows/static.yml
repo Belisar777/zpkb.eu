@@ -40,6 +40,7 @@ jobs:
         run: node build.js
         env:
           WP_API_URL: ${{ secrets.WP_API_URL }}
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
 
       - name: Commit changes
         run: |
