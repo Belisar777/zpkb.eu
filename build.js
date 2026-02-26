@@ -64,7 +64,6 @@ function generateLanguageRedirect(langs) {
   </noscript>
 </body>
 </html>`;
-
   fs.writeFileSync(targetPath, html, 'utf8');
 }
 
@@ -137,7 +136,7 @@ function injectToTemplate(templateHtml, content, meta = {}) {
 function generateMenuInnerHtml(indexData) {
   let html = `
     <div class="myBarItem close" title="Zavřít okno">
-      <svg class="bx"><use xlink:href="/sprites/bx-basic.svg#bx-x"></use></svg>
+      <svg class="bx"><use xlink:href="sprites/bx-basic.svg#bx-x"></use></svg>
     </div>`;
 
   indexData.forEach(p => {
@@ -241,9 +240,13 @@ function generateArticleListHtml(indexData) {
         <div class="article-body">
           <h3><a href="${post.slug}.html">${post.title}</a></h3>
           <p class="article-excerpt">${post.excerpt}</p>
-          <a href="${post.slug}.html" class="myBarItem btn-more">ČÍST VÍCE</a>
+          <a href="${post.lang}/${post.slug}.html" class="btn-more">
+          <svg class="bx">
+						<use xlink:href="sprites/bx-basic.svg#bx-chevrons-down"></use>            
+					</svg>
+          </a>          
         </div>
-      </article><hr>`;
+      </article>`;
   });
 
   html += '</div>';
