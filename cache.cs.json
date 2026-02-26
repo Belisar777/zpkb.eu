@@ -1,11 +1,11 @@
 {
   "1": {
     "id": 1,
-    "modified": "2026-02-20 10:54:39",
+    "modified": "2026-02-26 08:54:43",
     "title": "Článek uvítací!",
     "slug": "ahoj-vsichni",
     "type": "post",
-    "author": "admin",
+    "author": "Pavla Civínová",
     "excerpt": "Vítejte ve WordPressu. Toto je váš první příspěvek. Můžete ho upravit, nebo smazat a postupně pak začít s tvorbou vlastního webu. Ahoj všichni!",
     "content": "\n<p>Vítejte ve WordPressu. Toto je váš první příspěvek. Můžete ho upravit, nebo smazat a postupně pak začít s tvorbou vlastního webu.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Ahoj všichni!</h2>\n",
     "lang": "cs"
@@ -34,22 +34,22 @@
   },
   "9": {
     "id": 9,
-    "modified": "2026-02-20 10:54:38",
+    "modified": "2026-02-26 08:54:42",
     "title": "Článek další",
     "slug": "tohle-je-dalsi-stranka",
     "type": "post",
-    "author": "admin",
+    "author": "Pavla Civínová",
     "excerpt": "Mrkni na to",
     "content": "\n<p>Mrkni na to</p>\n\n\n\n<p></p>\n\n\n\n<p></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>1 položka</li>\n\n\n\n<li>2 položka</li>\n\n\n\n<li>3 položka</li>\n\n\n\n<li>4 položka</li>\n</ul>\n",
     "lang": "cs"
   },
   "34": {
     "id": 34,
-    "modified": "2026-02-23 17:20:26",
+    "modified": "2026-02-26 08:54:42",
     "title": "Nový článek &#8211; upravený",
     "slug": "novy-clanek",
     "type": "post",
-    "author": "admin",
+    "author": "Pavla Civínová",
     "excerpt": "sadsadas",
     "content": "\n<p>sadsadas</p>\n",
     "lang": "cs"
