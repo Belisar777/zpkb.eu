@@ -17,6 +17,7 @@ const ENCODING = 'utf8';
 const LANGS = [
   { code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Domů', notFoundTitle: '404' },
   { code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'Home', notFoundTitle: '404' },
+  { code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Maison', notFoundTitle: '404' },
 ];
 
 // =======================
@@ -36,6 +37,37 @@ function copyDirRecursive(src, dest, excludeFile) {
       fs.copyFileSync(srcPath, destPath);
     }
   }
+}
+
+function generateLanguageRedirect(langs) {
+  const targetPath = path.join(ROOT_DIST, 'index.html');
+
+  // Sestavení JS logiky pro redirect
+  // Poslední jazyk v poli bereme jako defaultní fallback
+  const defaultLang = langs[langs.length - 1];
+  const redirectLogic = langs.slice(0, -1).map(l =>
+    `if (short === "${l.code}") return location.href = "${l.urlPrefix}/";`
+  ).join('\n    ');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    const short = (navigator.language || "en").toLowerCase().substring(0, 2);
+    ${redirectLogic}
+    location.href = "${defaultLang.urlPrefix}/";
+  </script>
+</head>
+<body>
+  <noscript>
+    ${langs.map(l => `<a href="${l.urlPrefix}/">${l.code.toUpperCase()}</a>`).join(' ')}
+  </noscript>
+</body>
+</html>`;
+
+  fs.writeFileSync(targetPath, html, 'utf8');
 }
 
 /**
@@ -329,6 +361,8 @@ async function buildAll() {
   // 0) Připrav root a zkopíruj ASSETS JEDNOU (bez index.html)
   ensureDir(ROOT_DIST);
   copyDirRecursive(TEMPLATE_DIR, ROOT_DIST, 'index.html');
+
+  generateLanguageRedirect(LANGS);
 
   // 1) Pro každý jazyk vygeneruj HTML do /{code}/
   for (const lang of LANGS) {
