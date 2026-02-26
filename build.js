@@ -247,11 +247,13 @@ async function buildOneLanguage(lang) {
     validFiles.add(fileName);
 
     const cacheKey = `${item.id}`; // cache držíme per jazyk => samostatný soubor cache.{lang}.json
-    if (cache[cacheKey] && cache[cacheKey].modified === item.modified) {
+    if (cache[cacheKey] && cache[cacheKey].modified === item.modified && cache[cacheKey].content === item.content) {
       newCache[cacheKey] = cache[cacheKey];
     } else {
       const detailUrl = joinUrl(API_URL, lang.urlPrefix, `?get_static_post=${item.id}`);
       const postRes = await fetch(detailUrl);
+      console.log("Stahuji ${item.id}");
+
       if (!postRes.ok) {
         console.warn(`WARN [${lang.code}] post ${item.id} fetch failed: ${postRes.status} ${postRes.statusText}`);
         continue;
