@@ -4,6 +4,11 @@ on:
   repository_dispatch:
     types: [webhook_deploy]
   workflow_dispatch:
+    inputs:
+      clearCache:
+        description: "Clear build cache before generating"
+        required: false
+        default: "false"
   push:
     branches: [main]
 
@@ -18,6 +23,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Clear cache
+        if: ${{ github.event.inputs.clearCache == 'true' }}
+        run: |
+          echo "Clearing cache..."
+          rm -rf cache*
+          rm -rf www
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
