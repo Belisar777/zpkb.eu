@@ -3,27 +3,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-<<<<<<< HEAD
-    <lastmod>2026-02-26T19:55:17.565Z</lastmod>
-=======
-    <lastmod>2026-02-26T19:56:19.169Z</lastmod>
->>>>>>> 3aa84e9 (Aktualizace)
+    <lastmod>2026-02-26T20:04:17.408Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/cs/staze-pro-studenty.html</loc>
-<<<<<<< HEAD
     <lastmod>2026-02-26T19:54:53.000Z</lastmod>
-=======
-    <lastmod>2026-02-26T18:54:53.000Z</lastmod>
->>>>>>> 3aa84e9 (Aktualizace)
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/cs/o-nas.html</loc>
-<<<<<<< HEAD
     <lastmod>2026-02-26T19:54:42.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,40 +49,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-=======
-    <lastmod>2026-02-26T18:54:42.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/kontakty.html</loc>
-    <lastmod>2026-02-26T18:54:32.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/ahoj-vsichni.html</loc>
-    <lastmod>2026-02-26T18:54:08.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/novy-clanek.html</loc>
-    <lastmod>2026-02-26T18:48:50.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/tohle-je-dalsi-stranka.html</loc>
-    <lastmod>2026-02-26T18:48:21.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/ochrana-osobnich-udaju.html</loc>
-    <lastmod>2026-02-26T09:58:36.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
->>>>>>> 3aa84e9 (Aktualizace)
 </urlset>
