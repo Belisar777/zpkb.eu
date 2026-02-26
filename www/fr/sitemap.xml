@@ -3,18 +3,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-26T19:55:17.286Z</lastmod>
+=======
+    <lastmod>2026-02-26T19:56:18.730Z</lastmod>
+>>>>>>> 3aa84e9 (Aktualizace)
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/staze-pro-studenty.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-26T19:54:53.000Z</lastmod>
+=======
+    <lastmod>2026-02-26T18:54:53.000Z</lastmod>
+>>>>>>> 3aa84e9 (Aktualizace)
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/o-nas.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-26T19:54:42.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -49,4 +58,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+=======
+    <lastmod>2026-02-26T18:54:42.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/kontakty.html</loc>
+    <lastmod>2026-02-26T18:54:32.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/ahoj-vsichni.html</loc>
+    <lastmod>2026-02-26T18:54:08.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/novy-clanek.html</loc>
+    <lastmod>2026-02-26T18:48:50.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/tohle-je-dalsi-stranka.html</loc>
+    <lastmod>2026-02-26T18:48:21.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/ochrana-osobnich-udaju.html</loc>
+    <lastmod>2026-02-26T09:58:36.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+>>>>>>> 3aa84e9 (Aktualizace)
 </urlset>
