@@ -3,25 +3,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-02-26T19:48:47.139Z</lastmod>
+    <lastmod>2026-02-26T19:49:22.187Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/fr/tohle-je-dalsi-stranka.html</loc>
-    <lastmod>2026-02-26T19:48:21.000Z</lastmod>
+    <loc>https://zpkb.eu/fr/ahoj-vsichni.html</loc>
+    <lastmod>2026-02-26T19:48:51.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/novy-clanek.html</loc>
-    <lastmod>2026-02-26T19:06:48.000Z</lastmod>
+    <lastmod>2026-02-26T19:48:50.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/fr/ahoj-vsichni.html</loc>
-    <lastmod>2026-02-26T19:06:11.000Z</lastmod>
+    <loc>https://zpkb.eu/fr/tohle-je-dalsi-stranka.html</loc>
+    <lastmod>2026-02-26T19:48:21.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
