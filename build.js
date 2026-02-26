@@ -46,7 +46,7 @@ function generateLanguageRedirect(langs) {
   // Poslední jazyk v poli bereme jako defaultní fallback
   const defaultLang = langs[langs.length - 1];
   const redirectLogic = langs.slice(0, -1).map(l =>
-    `if (short === "${l.code}") return location.href = "${l.urlPrefix}/";`
+    `if (short === "${l.code}") location.href = "${l.urlPrefix}/";`
   ).join('\n    ');
 
   const html = `<!DOCTYPE html>
