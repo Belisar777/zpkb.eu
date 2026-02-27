@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-02-27T15:48:19.863Z</lastmod>
+    <lastmod>2026-02-27T16:05:01.831Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -58,12 +58,6 @@
   <url>
     <loc>https://zpkb.eu/fr/o-nas.html</loc>
     <lastmod>2026-02-27T14:47:18.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/ochrana-osobnich-udaju.html</loc>
-    <lastmod>2026-02-26T10:58:36.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
