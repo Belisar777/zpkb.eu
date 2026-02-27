@@ -3,9 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-02-27T16:23:41.295Z</lastmod>
+    <lastmod>2026-02-27T16:26:31.053Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/zpatky-do-minulosti.html</loc>
+    <lastmod>2026-02-27T16:26:20.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/budoucnost-evropskych-penez.html</loc>
