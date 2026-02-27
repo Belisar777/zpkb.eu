@@ -3,19 +3,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-02-27T14:31:50.157Z</lastmod>
+    <lastmod>2026-02-27T14:32:21.642Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/staze-pro-studenty.html</loc>
-    <lastmod>2026-02-27T14:31:14.000Z</lastmod>
+    <loc>https://zpkb.eu/en/contacts.html</loc>
+    <lastmod>2026-02-27T14:32:19.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/contacts.html</loc>
-    <lastmod>2026-02-27T14:02:34.000Z</lastmod>
+    <loc>https://zpkb.eu/en/staze-pro-studenty.html</loc>
+    <lastmod>2026-02-27T14:31:14.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
