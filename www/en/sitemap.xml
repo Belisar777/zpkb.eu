@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-02-27T13:06:06.693Z</lastmod>
+    <lastmod>2026-02-27T13:14:26.333Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,24 +22,6 @@
   <url>
     <loc>https://zpkb.eu/en/contacts.html</loc>
     <lastmod>2026-02-26T19:54:32.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/en/hello-everyone.html</loc>
-    <lastmod>2026-02-26T19:54:08.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/en/new-post.html</loc>
-    <lastmod>2026-02-26T19:48:50.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/en/this-is-another-page.html</loc>
-    <lastmod>2026-02-26T19:48:21.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,15 +1,4 @@
 {
-  "1": {
-    "id": 1,
-    "modified": "2026-02-26 19:54:08",
-    "title": "Článek uvítací!",
-    "slug": "ahoj-vsichni",
-    "type": "post",
-    "author": "Pavla Civínová",
-    "excerpt": "Vítejte ve WordPressu. Toto je váš první příspěvek. Můžete ho upravit, nebo smazat a postupně pak začít s tvorbou vlastního webu.",
-    "content": "\n<p>Vítejte ve WordPressu. Toto je váš první příspěvek. Můžete ho upravit, nebo smazat a postupně pak začít s tvorbou vlastního webu.</p>\n",
-    "lang": "cs"
-  },
   "2": {
     "id": 2,
     "modified": "2026-02-26 19:54:42",
@@ -30,28 +19,6 @@
     "author": "Pavla Civínová",
     "excerpt": "Doporučený text: Naše webová adresa je: https://admin.zpkb.eu. Komentáře Doporučený text: Když návštěvníci přidají komentář na tento web, jsou shromažďovány údaje zobrazené ve formuláři pro komentář, dále IP adresa návštěvníka a řetězec user agent definující prohlížeč, což pomáhá k detekci spamu. Službě Gravatar může být poskytnut anonymní řetězec vytvořený z vaší e-mailové adresy (nazývaný také hash), [&hellip;]",
     "content": "\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Naše webová adresa je: https://admin.zpkb.eu.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Komentáře</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Když návštěvníci přidají komentář na tento web, jsou shromažďovány údaje zobrazené ve formuláři pro komentář, dále IP adresa návštěvníka a řetězec user agent definující prohlížeč, což pomáhá k detekci spamu.</p>\n\n\n\n<p>Službě Gravatar může být poskytnut anonymní řetězec vytvořený z vaší e-mailové adresy (nazývaný také hash), díky kterému lze určit jestli tuto službu používáte. Zásady ochrany osobních údajů služby Gravatar jsou k dispozici zde: https://automattic.com/privacy/. Po schválení vašeho komentáře je váš profilový obrázek viditelný pro veřejnost v kontextu vašeho komentáře.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Média</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Pokud nahráváte obrázky na tento web, měli byste se vyhnout nahrávání obrázků s vloženými údaji o poloze (EXIF GPS). Návštěvníci webu mohou stáhnout a zobrazit libovolné data o poloze z obrázků na webu.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Cookies</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Pokud na naše stránky přidáte komentář, můžete povolit uložení jména, e-mailové adresy a webové stránky do cookies. Tímto způsobem se snažíme zvýšit váš komfort, když budete psát nový komentář už pak nebudete muset tyto údaje znovu vyplňovat. Tyto soubory cookies budou mít životnost jeden rok.</p>\n\n\n\n<p>Pokud navštívíte naši přihlašovací stránku, nastavíme dočasné cookies pro ověření, zda váš prohlížeč přijímá soubory cookies. Tento soubor cookies neobsahuje žádná osobní data a při zavření prohlížeče se zruší.</p>\n\n\n\n<p>Při přihlašování vám nastavíme také několik souborů cookies pro uložení vašich přihlašovacích údajů a pro nastavení zobrazení obrazovky. Přihlašovací soubory cookies mají životnost dva dny a cookies pro nastavení zobrazení mají životnost jeden rok. Pokud potvrdíte možnost „Zapamatovat si mě“, vaše přihlášení bude trvat dva týdny. Pokud se ze svého účtu odhlásíte, přihlašovací cookies budou odstraněny.</p>\n\n\n\n<p>Pokud upravujete nebo publikujete článek, bude ve vašem prohlížeči uložen další cookie. Tento cookie neobsahuje žádná osobní data a jednoduše označuje ID příspěvku, který jste právě upravili. Jeho platnost vyprší po 1 dni.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Vložený obsah z dalších webů</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Příspěvky na těchto stránkách mohou obsahovat vložený obsah (například videa, obrázky, články atd.). Vložený obsah z jiných webových stránek se chová stejným způsobem, jako kdyby návštěvník navštívil jiný web.</p>\n\n\n\n<p>Tyto webové stránky mohou shromažďovat data o vás, používat soubory cookies, vkládat další sledování od třetích stran a sledovat vaši interakci s tímto vloženým obsahem, včetně sledování interakce s vloženým obsahem, pokud máte účet a jste přihlášeni na danou webovou stránku.</p>\n\n\n\n<h2 class=\"wp-block-heading\">S kým sdílíme vaše údaje</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Pokud požadujete obnovení hesla, vaše adresa IP bude uvedena v e-mailu pro obnovení hesla.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Jak dlouho uchováváme vaše údaje</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Pokud přidáte komentář, komentář a jeho metadata budou uchovávána po dobu neurčitou. Údaje jsou uchovávány za účelem automatického rozpoznání a schválení všech následných komentářů, místo jejich držení ve frontě moderování.</p>\n\n\n\n<p>Pro uživatele, kteří se registrují na tomto webu (pokud mají tuto možnost), ukládáme také osobní údaje, které uvádějí ve svém uživatelském profilu. Všichni uživatelé mohou kdykoliv vidět, upravovat nebo smazat své osobní údaje (s výjimkou toho, že nemohou změnit své uživatelské jméno). Administrátoři webu mohou také tyto informace zobrazit a upravovat.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Jaká máte práva?</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Pokud máte na tomto webu účet nebo jste zde přidali komentáře, můžete požádat o obdržení souboru s exportem osobních údajů, které o vás uchováváme, včetně všech údajů, které jste nám poskytli. Můžete také požádat o odstranění veškerých osobních údajů, které o vás uchováváme. Tato možnost nezahrnuje údaje, které jsme povinni uchovávat z administrativních, právních nebo bezpečnostních důvodů.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Kam se posílají vaše data</h2>\n\n\n\n<p><strong class=\"privacy-policy-tutorial\">Doporučený text: </strong>Komentáře návštěvníků mohou být kontrolovány prostřednictvím automatizované služby detekce spamu, která může být umístěna v zahraničí.</p>\n",
-    "lang": "cs"
-  },
-  "9": {
-    "id": 9,
-    "modified": "2026-02-26 19:48:21",
-    "title": "Článek další",
-    "slug": "tohle-je-dalsi-stranka",
-    "type": "post",
-    "author": "Pavla Civínová",
-    "excerpt": "Mrkni na to",
-    "content": "\n<p>Mrkni na to</p>\n\n\n\n<p></p>\n\n\n\n<p></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>1 položka</li>\n\n\n\n<li>2 položka</li>\n\n\n\n<li>3 položka</li>\n\n\n\n<li>4 položka</li>\n</ul>\n",
-    "lang": "cs"
-  },
-  "34": {
-    "id": 34,
-    "modified": "2026-02-26 19:48:50",
-    "title": "Nový článek",
-    "slug": "novy-clanek",
-    "type": "post",
-    "author": "Pavla Civínová",
-    "excerpt": "sadsadas",
-    "content": "\n<p>sadsadas</p>\n",
     "lang": "cs"
   },
   "40": {
