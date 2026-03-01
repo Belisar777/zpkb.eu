@@ -3,9 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-03-01T07:18:04.580Z</lastmod>
+    <lastmod>2026-03-01T07:18:53.503Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/cs/budoucnost-evropskych-penez.html</loc>
+    <lastmod>2026-03-01T07:18:42.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/cs/zaci-studentskeho-parlamentu-plzenskeho-kraje-v-bruselu.html</loc>
@@ -16,12 +22,6 @@
   <url>
     <loc>https://zpkb.eu/cs/zpatky-do-minulosti.html</loc>
     <lastmod>2026-02-27T16:30:15.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/budoucnost-evropskych-penez.html</loc>
-    <lastmod>2026-02-27T15:48:18.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
