@@ -3,19 +3,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-01T22:00:35.572Z</lastmod>
+    <lastmod>2026-03-01T22:15:43.906Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
-    <lastmod>2026-03-01T22:00:25.000Z</lastmod>
+    <loc>https://zpkb.eu/en/the-future-of-eu-funds.html</loc>
+    <lastmod>2026-03-01T22:15:34.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/the-future-of-eu-funds.html</loc>
-    <lastmod>2026-03-01T07:19:21.000Z</lastmod>
+    <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
+    <lastmod>2026-03-01T22:00:25.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
