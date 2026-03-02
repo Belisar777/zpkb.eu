@@ -41,13 +41,18 @@ jobs:
         env:
           WP_API_URL: ${{ secrets.WP_API_URL }}
           SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
-
+      
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git config pull.rebase true
+          git pull origin main || true
+
           git add .
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated build: add new pages" && git push)          
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated build: add new pages" && git push)
+          
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
