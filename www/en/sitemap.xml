@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-03T23:02:48.705Z</lastmod>
+    <lastmod>2026-03-03T23:03:39.529Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,6 +22,12 @@
   <url>
     <loc>https://zpkb.eu/en/karusel-3.html</loc>
     <lastmod>2026-03-02T12:53:21.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/en/333-2.html</loc>
+    <lastmod>2026-03-03T23:03:30.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
