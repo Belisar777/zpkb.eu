@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-03-03T19:31:17.672Z</lastmod>
+    <lastmod>2026-03-03T19:31:48.652Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,6 +22,12 @@
   <url>
     <loc>https://zpkb.eu/cs/karusel-3.html</loc>
     <lastmod>2026-03-02T12:53:21.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/cs/zaci-studentskeho-parlamentu-plzenskeho-kraje-v-bruselu.html</loc>
+    <lastmod>2026-03-03T19:31:35.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -46,12 +52,6 @@
   <url>
     <loc>https://zpkb.eu/cs/o-nas.html</loc>
     <lastmod>2026-03-03T14:19:05.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/zaci-studentskeho-parlamentu-plzenskeho-kraje-v-bruselu.html</loc>
-    <lastmod>2026-03-03T14:18:15.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
