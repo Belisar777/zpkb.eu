@@ -3,9 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-03-03T12:19:00.058Z</lastmod>
+    <lastmod>2026-03-03T12:19:22.024Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/karusel-2.html</loc>
+    <lastmod>2026-03-03T12:19:12.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/karusel-1.html</loc>
@@ -34,12 +40,6 @@
   <url>
     <loc>https://zpkb.eu/fr/eleves-a-bruxelles.html</loc>
     <lastmod>2026-03-03T12:18:46.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/karusel-2.html</loc>
-    <lastmod>2026-03-03T12:18:45.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
