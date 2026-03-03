@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-03-03T14:33:36.308Z</lastmod>
+    <lastmod>2026-03-03T19:30:18.009Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,6 +22,12 @@
   <url>
     <loc>https://zpkb.eu/cs/karusel-3.html</loc>
     <lastmod>2026-03-02T12:53:21.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/cs/zpatky-do-minulosti.html</loc>
+    <lastmod>2026-03-03T19:30:07.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -46,12 +52,6 @@
   <url>
     <loc>https://zpkb.eu/cs/budoucnost-evropskych-penez.html</loc>
     <lastmod>2026-03-03T14:17:44.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/cs/zpatky-do-minulosti.html</loc>
-    <lastmod>2026-03-03T14:17:01.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
