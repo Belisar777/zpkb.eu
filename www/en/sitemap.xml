@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-03T12:17:19.269Z</lastmod>
+    <lastmod>2026-03-03T12:18:59.021Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,26 +20,26 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/karusel-2.html</loc>
-    <lastmod>2026-03-02T12:53:21.000Z</lastmod>
+    <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
+    <lastmod>2026-03-03T12:18:46.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/en/the-future-of-eu-funds.html</loc>
-    <lastmod>2026-03-03T12:11:59.000Z</lastmod>
+    <lastmod>2026-03-03T12:18:46.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/en/students-in-brussels.html</loc>
-    <lastmod>2026-03-02T12:50:29.000Z</lastmod>
+    <lastmod>2026-03-03T12:18:46.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
-    <lastmod>2026-03-02T12:50:28.000Z</lastmod>
+    <loc>https://zpkb.eu/en/karusel-2.html</loc>
+    <lastmod>2026-03-03T12:18:45.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
