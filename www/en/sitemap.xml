@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-03T22:00:22.965Z</lastmod>
+    <lastmod>2026-03-03T22:03:27.849Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,6 +26,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
+    <lastmod>2026-03-03T22:03:15.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zpkb.eu/en/the-future-of-eu-funds.html</loc>
     <lastmod>2026-03-03T22:00:14.000Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -34,12 +40,6 @@
   <url>
     <loc>https://zpkb.eu/en/students-in-brussels.html</loc>
     <lastmod>2026-03-03T21:56:12.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
-    <lastmod>2026-03-03T21:55:31.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
