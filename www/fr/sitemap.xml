@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-03-04T21:17:28.962Z</lastmod>
+    <lastmod>2026-03-04T21:18:53.232Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,6 +26,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zpkb.eu/fr/lavenir-des-fonds-eu.html</loc>
+    <lastmod>2026-03-04T21:18:42.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zpkb.eu/fr/retour-vers-le-passe.html</loc>
     <lastmod>2026-03-04T21:17:17.000Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -40,12 +46,6 @@
   <url>
     <loc>https://zpkb.eu/fr/que-faisons-nous.html</loc>
     <lastmod>2026-03-04T20:42:59.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/lavenir-des-fonds-eu.html</loc>
-    <lastmod>2026-03-04T20:03:46.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
