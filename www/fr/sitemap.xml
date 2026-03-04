@@ -3,19 +3,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-03-04T15:37:42.007Z</lastmod>
+    <lastmod>2026-03-04T17:05:28.517Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/fr/karusel-2.html</loc>
-    <lastmod>2026-03-03T12:19:12.000Z</lastmod>
+    <loc>https://zpkb.eu/fr/karusel-1.html</loc>
+    <lastmod>2026-03-04T17:05:15.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/fr/karusel-1.html</loc>
-    <lastmod>2026-03-03T12:17:07.000Z</lastmod>
+    <loc>https://zpkb.eu/fr/karusel-2.html</loc>
+    <lastmod>2026-03-03T12:19:12.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
