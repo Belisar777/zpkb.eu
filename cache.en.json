@@ -130,5 +130,27 @@
     "excerpt": "",
     "content": "",
     "lang": "en"
+  },
+  "374": {
+    "id": 374,
+    "modified": "2026-03-06 09:00:55",
+    "title": "Zásady ochrany osobních údajů",
+    "slug": "zasady-ochrany-osobnich-udaju",
+    "type": "page",
+    "author": "admin",
+    "excerpt": "",
+    "content": "",
+    "lang": "en"
+  },
+  "376": {
+    "id": 376,
+    "modified": "2026-03-06 09:01:13",
+    "title": "Nastavení souborů cookie",
+    "slug": "nastaveni-souboru-cookie",
+    "type": "page",
+    "author": "admin",
+    "excerpt": "",
+    "content": "",
+    "lang": "en"
   }
 }
