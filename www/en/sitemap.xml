@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-06T20:06:44.110Z</lastmod>
+    <lastmod>2026-03-06T21:03:06.739Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,6 +26,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://zpkb.eu/en/zasady-ochrany-osobnich-udaju.html</loc>
+    <lastmod>2026-03-06T21:02:54.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zpkb.eu/en/about-us.html</loc>
     <lastmod>2026-03-06T20:06:06.000Z</lastmod>
     <changefreq>monthly</changefreq>
@@ -34,12 +40,6 @@
   <url>
     <loc>https://zpkb.eu/en/nastaveni-souboru-cookie.html</loc>
     <lastmod>2026-03-06T09:01:13.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/en/zasady-ochrany-osobnich-udaju.html</loc>
-    <lastmod>2026-03-06T09:00:55.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
