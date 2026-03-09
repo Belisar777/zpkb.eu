@@ -11,6 +11,18 @@ on:
         default: "false"
   push:
     branches: [main]
+    # Volitelné: omez push triggery jen na zdrojáky, ne na vygenerovaný obsah
+    paths:
+      - 'build.js'
+      - 'src/**'
+      - '.github/workflows/deploy.yml'
+    paths-ignore:
+      - 'www/**'
+
+# --- Jen 1 run na větev + zruš starší běh při novém požadavku
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -21,8 +33,16 @@ jobs:
       contents: write
 
     steps:
+      # Debounce okno 120 s – starší běhy se při novém triggeru ukončí
+      - name: Debounce window (120s)
+        run: sleep 120
+
       - name: Checkout code
         uses: actions/checkout@v4
+
+        # (Volitelné) pokud chceš z push triggeru ignorovat commity bota:
+        # with:
+        #   persist-credentials: false
 
       - name: Clear cache
         if: ${{ github.event.inputs.clearCache == 'true' }}
@@ -41,7 +61,7 @@ jobs:
         env:
           WP_API_URL: ${{ secrets.WP_API_URL }}
           SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
-             
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
@@ -56,14 +76,14 @@ jobs:
 
           git commit -m "Automated build: add new pages"
 
-          # Merge strategy místo rebase
+          # Bez rebase, řeší konflikty ve prospěch lokálního buildu
           git pull --no-rebase origin main --strategy-option=ours || {
             git merge --abort
             exit 1
           }
 
           git push origin main
-          
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
