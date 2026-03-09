@@ -1,5 +1,9 @@
 name: Deploy Static Site
 
+concurrency:
+  group: webhook-deploy
+  cancel-in-progress: true
+
 on:
   repository_dispatch:
     types: [webhook_deploy]
