@@ -144,12 +144,12 @@
   },
   "376": {
     "id": 376,
-    "modified": "2026-03-10 21:15:39",
+    "modified": "2026-03-10 21:21:41",
     "title": "Cookie Settings",
     "slug": "cookie-settings",
     "type": "page",
     "author": "admin",
-    "excerpt": "Informace o cookies.\n",
+    "excerpt": "Informace o cookies.",
     "content": "\r\n<p data-start=\"77\" data-end=\"269\">This website <strong data-start=\"90\" data-end=\"129\">does not collect or use any cookies</strong> or other tracking technologies to store information about visitors. No personal data are collected, stored, or processed through cookies.</p>\r\n<p data-start=\"271\" data-end=\"437\">All website content is accessible without registration or storing data on your device. Your privacy and the security of your information are our top priorities.</p>\r\n<p data-start=\"439\" data-end=\"622\">If in the future cookies are implemented on the website, you will be informed through an updated statement and will have the opportunity to give or refuse your consent to their use.</p>\r\n\r\n",
     "lang": "en"
   }

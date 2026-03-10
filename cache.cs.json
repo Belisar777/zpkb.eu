@@ -144,13 +144,13 @@
   },
   "376": {
     "id": 376,
-    "modified": "2026-03-10 21:15:39",
+    "modified": "2026-03-10 21:21:41",
     "title": "Nastavení souborů cookie",
     "slug": "nastaveni-souboru-cookie",
     "type": "page",
     "author": "admin",
-    "excerpt": "\nInformace o cookies.\n",
-    "content": "\n<p>Tento web <strong>nesbírá ani nepoužívá žádné soubory cookie</strong> ani jiné sledovací technologie pro ukládání informací o návštěvnících. Žádné osobní údaje nejsou prostřednictvím cookies shromažďovány, ukládány ani zpracovávány.</p>\n\n\n\n<p>Veškerý obsah webu je přístupný bez nutnosti registrace či ukládání dat do vašeho zařízení. Vaše soukromí a bezpečnost informací jsou pro nás prioritou.</p>\n\n\n\n<p>V případě, že dojde k budoucím změnám a na web budou zavedeny cookies, budete o tom informováni prostřednictvím aktualizovaného prohlášení a budete mít možnost svůj souhlas s jejich používáním udělit nebo odmítnout.</p>\n",
+    "excerpt": "Informace o cookies.",
+    "content": "\n<p>Tento web <strong>nesbírá ani nepoužívá žádné soubory cookie</strong> ani jiné sledovací technologie pro ukládání informací o návštěvnících. Žádné osobní údaje nejsou prostřednictvím cookies shromažďovány, ukládány ani zpracovávány.</p>\n\n\n\n<p>Veškerý obsah webu je přístupný bez nutnosti registrace či ukládání dat do vašeho zařízení. Vaše soukromí a bezpečnost informací jsou pro nás prioritou.</p>\n\n\n\n<p>V případě, že dojde k budoucím změnám a na web budou zavedeny cookies, budete o tom informováni prostřednictvím aktualizovaného prohlášení a budete mít možnost svůj souhlas s jejich používáním udělit nebo odmítnout.</p>\n\n\n\n<div style=\"height:15px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<p></p>\n",
     "lang": "cs"
   }
 }
