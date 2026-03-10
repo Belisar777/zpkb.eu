@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-10T21:11:07.675Z</lastmod>
+    <lastmod>2026-03-10T21:15:52.538Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,6 +22,12 @@
   <url>
     <loc>https://zpkb.eu/en/karusel-2.html</loc>
     <lastmod>2026-03-09T12:20:20.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/en/cookie-settings.html</loc>
+    <lastmod>2026-03-10T21:15:39.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -58,12 +64,6 @@
   <url>
     <loc>https://zpkb.eu/en/back-to-the-past.html</loc>
     <lastmod>2026-03-06T22:01:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/en/cookie-settings.html</loc>
-    <lastmod>2026-03-06T21:43:21.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

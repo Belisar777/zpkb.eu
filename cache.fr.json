@@ -144,12 +144,12 @@
   },
   "376": {
     "id": 376,
-    "modified": "2026-03-06 21:43:21",
+    "modified": "2026-03-10 21:15:39",
     "title": "Paramètres des cookies",
     "slug": "parametres-des-cookies",
     "type": "page",
     "author": "admin",
-    "excerpt": "Ce site web ne collecte ni n’utilise aucun cookie ni aucune autre technologie de suivi pour stocker des informations sur les visiteurs. Aucune donnée personnelle n’est collectée, enregistrée ou traitée via les cookies. Tout le contenu du site est accessible sans inscription ni stockage de données sur votre appareil. Votre vie privée et la sécurité [&hellip;]",
+    "excerpt": "Informace o cookies.\n",
     "content": "\r\n<p data-start=\"649\" data-end=\"873\">Ce site web <strong data-start=\"661\" data-end=\"702\">ne collecte ni n’utilise aucun cookie</strong> ni aucune autre technologie de suivi pour stocker des informations sur les visiteurs. Aucune donnée personnelle n’est collectée, enregistrée ou traitée via les cookies.</p>\r\n<p data-start=\"875\" data-end=\"1052\">Tout le contenu du site est accessible sans inscription ni stockage de données sur votre appareil. Votre vie privée et la sécurité de vos informations sont notre priorité.</p>\r\n<p data-start=\"1054\" data-end=\"1272\">Si, à l’avenir, des cookies devaient être mis en place sur le site, vous en serez informé(e) via une déclaration mise à jour et vous aurez la possibilité de donner ou de refuser votre consentement à leur utilisation.</p>\r\n\r\n",
     "lang": "fr"
   }
