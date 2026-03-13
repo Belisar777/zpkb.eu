@@ -67,13 +67,13 @@
   },
   "205": {
     "id": 205,
-    "modified": "2026-03-13 11:18:35",
+    "modified": "2026-03-13 11:20:16",
     "title": "Événements",
     "slug": "evenements",
     "type": "page",
     "author": "Pavla Civínová",
-    "excerpt": "Co nás v roce 2026 čeká?",
-    "content": "\n<p><strong>26. června 2026: Czech Street Party </strong></p>\n\n\n\n<p>Tradičně jde o největší českou kulturní akci v Bruselu.</p>\n\n\n\n<p>Program zahrnuje <strong>českou hudbu, jídlo, pivo a prezentaci českých regionů a institucí.</strong></p>\n\n\n\n<p></p>\n",
+    "excerpt": "Qu’est-ce qui nous attend en 2026?",
+    "content": "\r\n<p data-start=\"238\" data-end=\"301\"><strong data-start=\"264\" data-end=\"301\"><span class=\"BZ_Pyq_fadeIn\">26 </span><span class=\"BZ_Pyq_fadeIn\">juin </span><span class=\"BZ_Pyq_fadeIn\">2026 : </span><span class=\"BZ_Pyq_fadeIn\">Czech </span><span class=\"BZ_Pyq_fadeIn\">Street </span><span class=\"BZ_Pyq_fadeIn\">Party</span></strong></p>\r\n<p data-start=\"303\" data-end=\"387\"><span class=\"BZ_Pyq_fadeIn\">Il </span><span class=\"BZ_Pyq_fadeIn\">s’agit </span><span class=\"BZ_Pyq_fadeIn\">traditionnellement </span><span class=\"BZ_Pyq_fadeIn\">du </span><span class=\"BZ_Pyq_fadeIn\">plus </span><span class=\"BZ_Pyq_fadeIn\">grand </span><span class=\"BZ_Pyq_fadeIn\">événement </span><span class=\"BZ_Pyq_fadeIn\">culturel </span><span class=\"BZ_Pyq_fadeIn\">tchèque </span><span class=\"BZ_Pyq_fadeIn\">à </span><span class=\"BZ_Pyq_fadeIn\">Bruxelles.</span></p>\r\n<p data-start=\"389\" data-end=\"520\" data-is-last-node=\"\" data-is-only-node=\"\"><span class=\"BZ_Pyq_fadeIn\">Le </span><span class=\"BZ_Pyq_fadeIn\">programme </span><span class=\"BZ_Pyq_fadeIn\">comprend </span><span class=\"BZ_Pyq_fadeIn\">de </span><span class=\"BZ_Pyq_fadeIn\">la </span><span class=\"BZ_Pyq_fadeIn\">musique </span><span class=\"BZ_Pyq_fadeIn\">tchèque, </span><span class=\"BZ_Pyq_fadeIn\">de </span><span class=\"BZ_Pyq_fadeIn\">la </span><span class=\"BZ_Pyq_fadeIn\">nourriture, </span><span class=\"BZ_Pyq_fadeIn\">de </span><span class=\"BZ_Pyq_fadeIn\">la </span><span class=\"BZ_Pyq_fadeIn\">bière </span><span class=\"BZ_Pyq_fadeIn\">et </span><span class=\"BZ_Pyq_fadeIn\">la </span><span class=\"BZ_Pyq_fadeIn\">présentation </span><span class=\"BZ_Pyq_fadeIn\">des </span><span class=\"BZ_Pyq_fadeIn\">régions </span><span class=\"BZ_Pyq_fadeIn\">et </span><span class=\"BZ_Pyq_fadeIn\">institutions </span><span class=\"BZ_Pyq_fadeIn\">tchèques.</span></p>\r\n\r\n\r\n\r\n<p>&nbsp;</p>\r\n",
     "lang": "fr"
   },
   "208": {
