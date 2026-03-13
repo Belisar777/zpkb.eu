@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-03-13T11:16:50.967Z</lastmod>
+    <lastmod>2026-03-13T11:18:31.186Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,6 +22,12 @@
   <url>
     <loc>https://zpkb.eu/fr/karusel-2.html</loc>
     <lastmod>2026-03-09T12:20:20.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/evenements.html</loc>
+    <lastmod>2026-03-13T11:18:17.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -82,12 +88,6 @@
   <url>
     <loc>https://zpkb.eu/fr/interets-e-la-region-de-pilsen.html</loc>
     <lastmod>2026-03-04T21:06:21.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/akce.html</loc>
-    <lastmod>2026-02-27T15:43:48.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
