@@ -56,12 +56,12 @@
   },
   "202": {
     "id": 202,
-    "modified": "2026-03-13 11:11:44",
+    "modified": "2026-03-13 11:12:15",
     "title": "FAQ",
     "slug": "faq",
     "type": "page",
     "author": "Pavla Civínová",
-    "excerpt": "",
+    "excerpt": "Zde najdete nejčastěji kladené dotazy.",
     "content": "\n<ol class=\"wp-block-list\">\n<li><strong>Jak dlouho trvají stáže na Zastoupení Plzeňského kraje?</strong>\n<ul class=\"wp-block-list\">\n<li>Minimální délka stáže pro studenty je v délce 3 měsíců.</li>\n</ul>\n</li>\n</ol>\n\n\n\n<p></p>\n",
     "lang": "fr"
   },
