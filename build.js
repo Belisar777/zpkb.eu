@@ -180,7 +180,7 @@ function renderMenuItems(items, langCode) {
 
 	for (const item of items || []) {
 		const href = toStaticHref(item.url, langCode);
-		const title = (item.title || '').toUpperCase();
+		const title = (item.title || '');
 		const target = item.target && item.target.toLowerCase() === '_blank' ? ' target="_blank" rel="noopener"' : '';
 
 		html += `
