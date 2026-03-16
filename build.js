@@ -282,7 +282,7 @@ ${sitemapsXml}
 function generateArticleListHtml(items, langCode) {
 	const sortedPosts = (items || [])
 		.filter(item => item.type === 'post')
-		.filter(item => item.conent !== '')
+		.filter(item => item.content !== '')
 		.sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
 
 	if (sortedPosts.length === 0) return '';
