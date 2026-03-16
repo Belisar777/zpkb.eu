@@ -3,26 +3,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://zpkb.eu/en/sitemap.xml</loc>
-<<<<<<< HEAD
-  <lastmod>2026-03-16T20:50:48.309Z</lastmod>
+  <lastmod>2026-03-16T21:38:06.264Z</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://zpkb.eu/fr/sitemap.xml</loc>
-  <lastmod>2026-03-16T20:50:48.309Z</lastmod>
+  <lastmod>2026-03-16T21:38:06.264Z</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://zpkb.eu/cs/sitemap.xml</loc>
-  <lastmod>2026-03-16T20:50:48.309Z</lastmod>
-=======
-  <lastmod>2026-03-16T21:34:02.074Z</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://zpkb.eu/fr/sitemap.xml</loc>
-  <lastmod>2026-03-16T21:34:02.074Z</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://zpkb.eu/cs/sitemap.xml</loc>
-  <lastmod>2026-03-16T21:34:02.074Z</lastmod>
->>>>>>> fe45ea8 (aktualizace)
+  <lastmod>2026-03-16T21:38:06.264Z</lastmod>
   </sitemap>
 </sitemapindex>
