@@ -207,12 +207,8 @@ function generateMenusByLocation(menuForLang, langCode) {
 	for (const menuObj of menuForLang || []) {
 		const location = menuObj.location || 'menu';
 		const itemsHtml = renderMenuItems(menuObj.items || [], langCode);
-		// Volitelný "close" button si můžeš případně odebrat, pokud ho šablona nevyužívá
-		const closeBtn = `
-      <div class="myBarItem close" title="Zavřít okno">
-        <svg class="bx"><use xlink:href="sprites/bx-basic.svg#bx-x"></use></svg>
-      </div>`;
-		result[location] = `${closeBtn}${itemsHtml}`;
+
+		result[location] = `${itemsHtml}`;
 	}
 	return result;
 }
@@ -286,6 +282,7 @@ ${sitemapsXml}
 function generateArticleListHtml(items, langCode) {
 	const sortedPosts = (items || [])
 		.filter(item => item.type === 'post')
+		.filter(item => item.conent !== '')
 		.sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
 
 	if (sortedPosts.length === 0) return '';
