@@ -3,7 +3,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
+<<<<<<< HEAD
   <lastmod>2026-03-16T20:50:47.384Z</lastmod>
+=======
+  <lastmod>2026-03-16T21:34:01.741Z</lastmod>
+>>>>>>> fe45ea8 (aktualizace)
   <changefreq>weekly</changefreq>
   <priority>1.0</priority>
   </url>
