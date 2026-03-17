@@ -437,13 +437,16 @@ async function buildOneLanguage(lang) {
 
 		// Všechny stránky (slugy). 404 do sitemapy nedáváme.
 		for (const meta of allItemsData) {
-			const lastmod = meta.modified ? formatDateISO(meta.modified) : undefined;
-			entries.push({
-				loc: joinUrl(baseLangUrl, `${meta.slug}.html`), // https://zpkb.eu/cs/slug.html
-				lastmod,
-				changefreq: 'monthly',
-				priority: (meta.slug === 'kontakt' || meta.slug === 'contact') ? 0.8 : 0.6
-			});
+
+			if (meta.content !== "") {
+				const lastmod = meta.modified ? formatDateISO(meta.modified) : undefined;
+				entries.push({
+					loc: joinUrl(baseLangUrl, `${meta.slug}.html`), // https://zpkb.eu/cs/slug.html
+					lastmod,
+					changefreq: 'monthly',
+					priority: (meta.slug === 'kontakt' || meta.slug === 'contact') ? 0.8 : 0.6
+				});
+			}
 		}
 
 		// Zapsat sitemap.xml v jazykové složce
