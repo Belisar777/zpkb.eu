@@ -384,11 +384,14 @@ async function buildOneLanguage(lang) {
 
 	// 4) Stránky
 	allItemsData.forEach(pageMeta => {
-		const fileName = `${pageMeta.slug}.html`;
-		const pageContent =
-			`<h2>${pageMeta.title || ''}</h2><div class="entry-content">${pageMeta.content || ''}</div>`;
-		const finalHtml = injectToTemplate(templateHtml, pageContent, { ...pageMeta, menus: menusByLocation });
-		fs.writeFileSync(path.join(lang.outDir, fileName), finalHtml, ENCODING);
+
+		if (pageMeta.content !== "") {
+			const fileName = `${pageMeta.slug}.html`;
+			const pageContent =
+				`<h2>${pageMeta.title || ''}</h2><div class="entry-content">${pageMeta.content || ''}</div>`;
+			const finalHtml = injectToTemplate(templateHtml, pageContent, { ...pageMeta, menus: menusByLocation });
+			fs.writeFileSync(path.join(lang.outDir, fileName), finalHtml, ENCODING);
+		}
 	});
 
 	// 5) Jazykový index a 404 (v /cs/ a atd)
