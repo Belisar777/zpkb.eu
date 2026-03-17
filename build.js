@@ -92,18 +92,12 @@ function injectToTemplate(templateHtml, content, meta = {}) {
 		`<section id="genContent">${content || ''}</section>`
 	);
 
-	// 2) Více menu podle "location" -> nahrazuje obsah <div id="{location}">...</div>
+	// 2) Více menu podle "location" -> nahrazuje obsah <nav id="{location}">...</nav>
 	if (meta.menus && typeof meta.menus === 'object') {
 		for (const [location, menuHtml] of Object.entries(meta.menus)) {
-			const regex = new RegExp(`(<div id="${location}"[^>]*>)(.*?)(</div>)`, 's');
+			const regex = new RegExp(`(<nav id="${location}"[^>]*>)(.*?)(</nav>)`, 's');
 			html = html.replace(regex, `$1${menuHtml}$3`);
 		}
-	}
-
-	// (Zpětná kompatibilita) – pokud je poslán single menu HTML, vlož do #menu
-	if (meta.menu) {
-		const fallbackMenuRegex = /(<div id="menu"[^>]*>)(.*?)(<\/div>)/s;
-		html = html.replace(fallbackMenuRegex, `$1${meta.menu}$3`);
 	}
 
 	// 3) <title> a <meta name="description">
