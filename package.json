@@ -18,5 +18,11 @@
     "build": "node --env-file=.env build.js",
     "clean": "rm -r www cache*",
     "docker": "cd /home/sec/Docker/minWordpress && docker-compose up"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "jsdom": "^29.0.0",
+    "path": "^0.12.7"
   }
 }
