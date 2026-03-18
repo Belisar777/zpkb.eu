@@ -2,8 +2,8 @@
 /* eslint-disable no-console */
 /**
  * Statický export WordPress (Falang) + stažení VŠECH souborů ze stejného originu:
- * - mapování cest: bez domény; pro uploads odstraň "wp-content/" => ../imgWP/uploads/YYYY/MM/file.ext
- * - ostatní zrcadlí kořen: ../imgWP/wp-content/..., ../imgWP/wp-includes/...
+ * - mapování cest: bez domény; pro uploads odstraň "wp-content/" => imgWP/uploads/YYYY/MM/file.ext
+ * - ostatní zrcadlí kořen: imgWP/wp-content/..., imgWP/wp-includes/...
  * - HTML stránky se nepřepisují (řeší je existující build .html)
  * - CSS: stáhne se a rekurzivně se stáhnou i url(...) a @import (bez přepisu obsahu)
  * - Inline style="...url(...)": přepis jen při úspěšném stažení
@@ -48,7 +48,7 @@ const LANGS = [
 
 // Uložiště lokálních souborů (společné pro všechny jazyky)
 const STATIC_ROOT = path.join(ROOT_DIST, 'imgWP'); // www/imgWP/...
-const PUBLIC_STATIC_PREFIX_FROM_LANG = '../imgWP'; // relativně z www/{lang}/*.html
+const PUBLIC_STATIC_PREFIX_FROM_LANG = 'imgWP'; // relativně z www/{lang}/*.html
 
 // Přípony, které považujeme za HTML stránky (nepřepisujeme je na lokální soubory)
 const HTML_EXT = new Set(['', '.html', '.htm']);
