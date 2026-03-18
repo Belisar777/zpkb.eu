@@ -302,22 +302,6 @@ async function fetchArrayBuffer(url) {
 	const ab = await res.arrayBuffer();
 	return { ab: Buffer.from(ab), headers: Object.fromEntries(res.headers.entries()) };
 }
-async function downloadBinaryIfNeeded(remoteUrl, diskPath) {
-	ensureDir(path.dirname(diskPath));
-	if (fs.existsSync(diskPath)) return;
-	const { ab } = await fetchArrayBuffer(remoteUrl);
-	fs.writeFileSync(diskPath, ab);
-}
-async function downloadTextIfNeeded(remoteUrl, diskPath) {
-	ensureDir(path.dirname(diskPath));
-	if (fs.existsSync(diskPath)) return fs.readFileSync(diskPath, ENCODING);
-	const res = await fetch(remoteUrl);
-	if (!res.ok) throw new Error(`Fetch failed: ${res.status} ${res.statusText} - ${remoteUrl}`);
-	const text = await res.text();
-	fs.writeFileSync(diskPath, text, ENCODING);
-	return text;
-}
-
 // --- Bezpečné obálky: neházejí výjimku, vrací true/false resp. {ok,text} ---
 async function safeDownloadBinary(remoteUrl, diskPath) {
 	try {
