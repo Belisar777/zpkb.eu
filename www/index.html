@@ -2,7 +2,18 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta http-equiv="refresh" content="0; url=cs/">
 <title>Redirecting…</title>
-<script>try{var nav=navigator.language||navigator.userLanguage||"";var short=(nav.split("-")[0]||"").toLowerCase();if (short === "en") location.replace("en/");
-      if (short === "fr") location.replace("fr/");location.replace("cs/");}catch(e){location.replace("cs/");}</script>
+<script>
+  (function(){
+    try {
+      var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      var short = (nav.split('-')[0] || '').toLowerCase();
+      if (short === "en") location.replace("en/");
+      if (short === "fr") location.replace("fr/");
+      location.replace("cs/");
+    } catch (e) {
+      location.replace("cs/");
+    }
+  })();
+</script>
 <noscript><meta http-equiv="refresh" content="0; url=cs/"></noscript>
 </head><body>Redirecting…</body></html>
