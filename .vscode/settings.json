@@ -1,0 +1,35 @@
+{
+	"eslint.format.enable": true,
+	"bookmarks.useWorkaroundForFormatters": true,
+	"editor.wrappingIndent": "deepIndent",
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features",
+		"editor.insertSpaces": false
+	},
+	"[css]": {
+		"editor.defaultFormatter": "vscode.css-language-features",
+		"editor.insertSpaces": false
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features",
+		"editor.insertSpaces": false
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features",
+		"editor.insertSpaces": false
+	},
+	"[php]": {
+		"editor.defaultFormatter": "vscode.php-language-features",
+		"editor.insertSpaces": false
+	},
+	"editor.tabSize": 2,
+	"editor.detectIndentation": false,
+	"html.format.indentInnerHtml": true,
+	"html.format.indentHandlebars": true,
+	"php.suggest.basic": false,
+	"editor.formatOnType": false,
+	"editor.formatOnSave": true,
+	"emmet.includeLanguages": {
+		"php": "html"
+	}
+}
