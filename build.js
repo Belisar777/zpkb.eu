@@ -167,13 +167,12 @@ function renderMenuItems(items, langCode) {
 	return html;
 }
 
-
 function generateMenusByLocation(menuForLang, langCode) {
 	const result = {};
 	for (const menuObj of (menuForLang || [])) {
 		const location = menuObj.location || 'menu';
 		const itemsHtml = renderMenuItems(menuObj.items || [], langCode);
-		result[location] = `<ul class="menu menu-${escapeAttr(location)}">${itemsHtml}</ul>`;
+		result[location] = `${itemsHtml}`;
 	}
 	return result;
 }
@@ -614,7 +613,16 @@ async function buildOneLanguage(lang) {
 	for (const pageMeta of allItemsData) {
 		if (pageMeta.content !== '') {
 			const fileName = `${pageMeta.slug}.html`;
-			const pageContent = `\n<section class="page">\n  <h3>${escapeHtml(pageMeta.title || '')}</h3>\n  ${pageMeta.content || ''}\n</section>`;
+			const pageContent = `\n
+				<div class="columns headline">\n
+					<div class="page-header"><h3>${escapeHtml(pageMeta.title || '')}</h3></div>\n
+					<div class="page-except">${escapeHtml(pageMeta.excerpt || '')}</div>\n
+				</div>\n
+				<div class="page-header">
+					${pageMeta.content || ''}\n
+				</div>\n
+				`;
+
 			const finalHtml = await buildDomPage({
 				templateHtml,
 				contentHtml: pageContent,
