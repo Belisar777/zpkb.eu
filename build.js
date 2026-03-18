@@ -506,6 +506,14 @@ function isDownloadableFile(urlStr) {
 function injectContentAndMenus(dom, { contentHtml, menusByLocation, isIndex, langCode }) {
 	const doc = dom.window.document;
 
+	const base = doc.createElement('base')
+	base.href = '../'
+
+	const head = doc.head
+	head.insertBefore(base, head.firstChild)
+
+	doc.documentElement.setAttribute('lang', langCode);
+
 	// only-index logika
 	const onlyIndexEls = Array.from(doc.querySelectorAll('[only-index]'));
 	if (isIndex) {
