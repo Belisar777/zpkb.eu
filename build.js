@@ -2,27 +2,27 @@
 /**
  * Statický export WordPress (Falang) + stažení VŠECH souborů ze stejného originu:
  * - mapování cest: bez domény; pro uploads odstraň "wp-content/" => ../imgWP/uploads/YYYY/MM/file.ext
- * - ostatní zrcadlí kořen: ../imgWP/wp-content/... , ../imgWP/wp-includes/...
+ * - ostatní zrcadlí kořen: ../imgWP/wp-content/... , ../imgWP/wp-includes/..., ...
  * - HTML stránky se nepřepisují (řeší je existující build .html)
  * - CSS: stáhne se a rekurzivně se stáhnou i url(...) a @import (bez přepisu obsahu)
  * - Inline style="...url(...)": přepis jen při úspěšném stažení
  * Node.js 18+ (global fetch).
  */
+
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { JSDOM } = require('jsdom'); // <-- DOM parser pro práci se šablonou
 
 // =======================
 // KONFIGURACE
 // =======================
-const API_URL = process.env.WP_API_URL; // např. https://admin.zpkb.eu
+const API_URL = process.env.WP_API_URL;          // např. https://admin.zpkb.eu
 const SITE_BASE_URL = process.env.SITE_BASE_URL; // např. https://zpkb.eu (PUBLIC URL)
 
 const ROOT_DIST = path.join(__dirname, 'www');            // KOŘEN výstupu (assets + jazykové složky)
-const TEMPLATE_DIR = path.join(__dirname, 'template');     // zdroj statických souborů (mimo index.html)
+const TEMPLATE_DIR = path.join(__dirname, 'template');    // zdroj statických souborů (mimo index.html)
 const TEMPLATE_FILE = path.join(TEMPLATE_DIR, 'index.html'); // HTML šablona
 const ENCODING = 'utf8';
 
@@ -34,8 +34,8 @@ const LANGS = [
 ];
 
 // Uložiště lokálních souborů (společné pro všechny jazyky)
-const STATIC_ROOT = path.join(ROOT_DIST, 'imgWP');                 // www/imgWP/...
-const PUBLIC_STATIC_PREFIX_FROM_LANG = '../imgWP';                 // relativně z www/{lang}/*.html
+const STATIC_ROOT = path.join(ROOT_DIST, 'imgWP');         // www/imgWP/...
+const PUBLIC_STATIC_PREFIX_FROM_LANG = '../imgWP';         // relativně z www/{lang}/*.html
 
 // Přípony, které považujeme za HTML stránky (nepřepisujeme je na lokální soubory)
 const HTML_EXT = new Set(['', '.html', '.htm']);
@@ -71,7 +71,7 @@ function copyDirRecursive(src, dest, excludeFile) {
 function generateLanguageRedirect(langs) {
 	const targetPath = path.join(ROOT_DIST, 'index.html');
 	const def = langs[langs.length - 1];
-	const langCases = langs.slice(0, -1).map(l => `if (short === "${l.code}") location.replace("${l.urlPrefix}/");`).join('\n ');
+	const langCases = langs.slice(0, -1).map(l => `if (short === "${l.code}") location.replace("${l.urlPrefix}/");`).join('\n      ');
 	const html = `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta http-equiv="refresh" content="0; url=${def.urlPrefix}/">
@@ -86,7 +86,7 @@ function joinUrl(...parts) {
 	if (filtered.length === 0) return '';
 	const first = filtered.shift();
 	const base = first.replace(/\/+$/, '');
-	const rest = filtered.map((p, i) => (i === filtered.length - 1 && /^(\?|#)/.test(p)) ? p : p.replace(/^\/+/, '').replace(/\/+$/g, '')).filter(Boolean);
+	const rest = filtered.map((p, i) => (i === filtered.length - 1 && /^[?#]/.test(p)) ? p : p.replace(/^\/+/, '').replace(/\/+$/g, '')).filter(Boolean);
 	let url = [base, ...rest].join('/');
 	url = url.replace(/\/(\?)/, '$1');
 	return url;
@@ -97,11 +97,9 @@ function escapeHtml(s) {
 function escapeAttr(s) {
 	return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
-function stripHtml(s) {
-	return String(s).replace(/<[^>]*>/g, '').trim();
-}
+function stripHtml(s) { return String(s).replace(/<[^>]*>/g, '').trim(); }
 function toWebPath(...segments) {
-	return segments.flat().filter(Boolean).join('/').replace(/\\+/g, '/');
+	return segments.flat().filter(Boolean).join('/').replace(/\\+/g, '/'); // "\" -> "/"
 }
 function hash8(str) {
 	return crypto.createHash('sha1').update(str).digest('hex').slice(0, 8);
@@ -114,204 +112,50 @@ function extnameLower(p) {
 }
 
 // =======================
-// DOM ŠABLONA + MENU (JSDOM)
+// ŠABLONA + MENU ENGINE
 // =======================
-
-/**
- * Nahradí komentářový marker HTML fragmentem.
- * Povoleno např.: <!-- CONTENT --> nebo <!-- MENU:primary -->
- */
-function replaceCommentMarkerWithHTML(document, matchFn, htmlFragment) {
-	const win = document.defaultView;
-	const tw = document.createTreeWalker(document, win.NodeFilter.SHOW_COMMENT);
-	const toReplace = [];
-	let node;
-	while ((node = tw.nextNode())) {
-		const text = (node.data || '').trim();
-		const key = matchFn(text);
-		if (key !== null) {
-			toReplace.push({ node, key });
-		}
-	}
-	for (const { node: commentNode } of toReplace) {
-		const wrapper = document.createElement('div');
-		wrapper.innerHTML = htmlFragment || '';
-		const frag = document.createDocumentFragment();
-		while (wrapper.firstChild) frag.appendChild(wrapper.firstChild);
-		commentNode.parentNode.replaceChild(frag, commentNode);
-	}
-}
-
-/** Odstraní Gutenberg HTML bloky: <!-- wp:html --> ... <!-- /wp:html --> */
-function removeWpHtmlBlocks(document) {
-	const win = document.defaultView;
-	const tw = document.createTreeWalker(document.body || document, win.NodeFilter.SHOW_COMMENT);
-	const ranges = [];
-	let node;
-	while ((node = tw.nextNode())) {
-		const data = (node.data || '').trim();
-		if (/^wp:html\b/i.test(data)) {
-			// počátek bloku
-			let n = node.nextSibling;
-			const toRemove = [node];
-			while (n && !(n.nodeType === 8 && /^\s*\/wp:html\s*$/i.test(n.data || ''))) {
-				toRemove.push(n);
-				n = n.nextSibling;
-			}
-			if (n) toRemove.push(n); // closing comment
-			ranges.push(toRemove);
-		}
-	}
-	for (const arr of ranges) {
-		for (const n of arr) {
-			if (n && n.parentNode) n.parentNode.removeChild(n);
-		}
-	}
-	// příp. wrapper třída z editoru
-	document.querySelectorAll('.wp-block-html').forEach(el => el.remove());
-}
-
-/** Odstraní všechny elementy s třídou .onlyIndex (v šabloně určené jen pro index) */
-function removeOnlyIndexElements(document) {
-	document.querySelectorAll('.onlyIndex').forEach(el => {
-		// z bezpečnostních důvodů neodstraňujeme kořen <html>, pokud by měl tuto třídu
-		if (el === document.documentElement) {
-			el.classList.remove('onlyIndex');
-		} else {
-			el.remove();
-		}
-	});
-}
-
-/**
- * Vloží obsah a menu do šablony pomocí DOM:
- * - CONTENT: 1) <!-- CONTENT -->, 2) <main>, 3) <div id="content">, fallback: <body>
- * - MENU: 1) <!-- MENU:<location> -->, 2) [data-menu="<location>"]
- * - Title/Description/placeholdery
- * - Filtrace šablonových prvků (Gutenberg HTML bloky, .onlyIndex) podle options.removeOnlyIndex
- */
-function injectToTemplateDOM(templateHtml, contentHtml, meta = {}, options = {}) {
-	const dom = new JSDOM(templateHtml);
-	const d = dom.window.document;
-
-	// 1) CONTENT: preferuj komentářový marker <!-- CONTENT -->
-	let contentInserted = false;
-	replaceCommentMarkerWithHTML(d, txt => (txt.toUpperCase() === 'CONTENT' ? '' : null), contentHtml);
-	// zkus zjistit, zda marker byl nalezen (hrubá detekce – porovnáme text v DOM po zásahu)
-	// Pokud ne, vložíme do <main> / #content / <body>
-	if (!d.querySelector('main *') && !d.querySelector('#content *')) {
-		// nebylo vloženo do <main> nebo #content – zkus explicitně
-		const markerCandidate = d.querySelector('main, #content');
-		if (markerCandidate) {
-			markerCandidate.innerHTML = contentHtml;
-			contentInserted = true;
-		}
+function injectToTemplate(templateHtml, content, meta = {}) {
+	let html = templateHtml;
+	if (html.includes('<!--CONTENT-->')) {
+		html = html.replace('<!--CONTENT-->', content || '');
+	} else if (html.match(/<\/main>/i)) {
+		html = html.replace(/<\/main>/i, `${content || ''}\n</main>`);
 	} else {
-		contentInserted = true;
+		html = html.replace(/<\/body>/i, `${content || ''}\n</body>`);
 	}
-	if (!contentInserted) {
-		// fallback na <main>
-		const mainEl = d.querySelector('main');
-		if (mainEl) {
-			mainEl.innerHTML = contentHtml;
-			contentInserted = true;
-		}
-	}
-	if (!contentInserted) {
-		// poslední fallback: připojit do <body>
-		const wrapper = d.createElement('div');
-		wrapper.innerHTML = contentHtml;
-		(d.body || d.documentElement).appendChild(wrapper);
-	}
-
-	// 2) MENU: podpora komentářů <!-- MENU:location -->
 	if (meta.menus && typeof meta.menus === 'object') {
-		replaceCommentMarkerWithHTML(
-			d,
-			txt => {
-				const m = txt.match(/^MENU\s*:\s*([A-Za-z0-9_-]+)$/i);
-				return m ? m[1] : null;
-			},
-			'' // prázdný, nahradíme níže per marker
-		);
-		// Druhý průchod: komentářové markery už byly odebrány; pro [data-menu] naplň přímo.
 		for (const [location, menuHtml] of Object.entries(meta.menus)) {
-			// 2a) [data-menu="<location>"]
-			d.querySelectorAll(`[data-menu="${location}"]`).forEach(el => { el.innerHTML = menuHtml || ''; });
-			// 2b) Pokud se v šabloně používal pouze komentář <!-- MENU:location -->,
-			//     je po replaceCommentMarkerWithHTML pryč; vytvoříme fallback cíl: <nav id="menu-<location>">
-			//     jen v případě, že nic nenašli.
-			if (!d.querySelector(`[data-menu="${location}"]`) && !d.querySelector(`.menu-${location}`)) {
-				const nav = d.createElement('nav');
-				nav.setAttribute('aria-label', location);
-				nav.innerHTML = menuHtml || '';
-				(d.querySelector('header') || d.body).appendChild(nav);
-			}
+			const marker = new RegExp(`<!--\\s*MENU:${location}\\s*-->`, 'i');
+			if (marker.test(html)) html = html.replace(marker, menuHtml || '');
 		}
 	}
-
-	// 3) Title
 	if (meta.title) {
-		let t = d.querySelector('title');
-		if (!t) {
-			t = d.createElement('title');
-			d.head.appendChild(t);
+		if (html.match(/<title>.*?<\/title>/i)) {
+			html = html.replace(/<title>.*?<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`);
+		} else {
+			html = html.replace(/<\/head>/i, `  <title>${escapeHtml(meta.title)}</title>\n</head>`);
 		}
-		t.textContent = meta.title;
 	}
-
-	// 4) Meta description
 	if (meta.excerpt) {
-		let m = d.querySelector('meta[name="description"]');
-		if (!m) {
-			m = d.createElement('meta');
-			m.setAttribute('name', 'description');
-			d.head.appendChild(m);
+		const tag = `<meta name="description" content="${escapeAttr(stripHtml(meta.excerpt))}">`;
+		if (html.match(/<meta[^>]+name=["']description["']/i)) {
+			html = html.replace(/<meta[^>]+name=["']description["'][^>]*>/i, tag);
+		} else {
+			html = html.replace(/<\/head>/i, `  ${tag}\n</head>`);
 		}
-		m.setAttribute('content', stripHtml(meta.excerpt));
 	}
-
-	// 5) Placeholdery {{author}}, {{type}}, {{date}}, {{slug}}, {{lang}}
 	const placeholders = {
 		author: meta.author || '',
 		type: meta.type || '',
-		date: meta.modified || meta.date || '',
+		date: meta.modified || '',
 		slug: meta.slug || '',
 		lang: meta.lang || '',
 	};
-	const walk = d.createTreeWalker(d.body || d, dom.window.NodeFilter.SHOW_TEXT);
-	let textNode;
-	while ((textNode = walk.nextNode())) {
-		let txt = textNode.nodeValue || '';
-		for (const [k, v] of Object.entries(placeholders)) {
-			txt = txt.split(`{{${k}}}`).join(String(v));
-		}
-		textNode.nodeValue = txt;
+	for (const [k, v] of Object.entries(placeholders)) {
+		html = html.replace(new RegExp(`{{${k}}}`, 'g'), String(v));
 	}
-	// Placeholdery i v atributech
-	d.querySelectorAll('*').forEach(el => {
-		for (const attr of el.getAttributeNames ? el.getAttributeNames() : []) {
-			let val = el.getAttribute(attr);
-			if (!val) continue;
-			for (const [k, v] of Object.entries(placeholders)) {
-				val = val.split(`{{${k}}}`).join(String(v));
-			}
-			el.setAttribute(attr, val);
-		}
-	});
-
-	// 6) Šablonová filtrace: pouze pokud jde o NE-index stránku
-	if (options.removeOnlyIndex === true) {
-		removeWpHtmlBlocks(d);
-		removeOnlyIndexElements(d);
-	}
-
-	return dom.serialize();
+	return html;
 }
-
-// =======================
-// MENU ENGINE (beze změny výstupu)
-// =======================
 function toStaticHref(itemUrl, langCode) {
 	if (!itemUrl) return '#';
 	try {
@@ -328,11 +172,11 @@ function toStaticHref(itemUrl, langCode) {
 }
 function renderMenuItems(items, langCode) {
 	let html = '';
-	for (const item of (items || [])) {
+	for (const item of items || []) {
 		const href = toStaticHref(item.url, langCode);
 		const title = escapeHtml(item.title || '');
 		const target = item.target && item.target.toLowerCase() === '_blank' ? ' target="_blank" rel="noopener"' : '';
-		html += `<li>${escapeAttr(href)}${title}</a>`;
+		html += `<li><a href="${escapeAttr(href)}"${target}>${title}</a>`;
 		if (Array.isArray(item.children) && item.children.length > 0) {
 			html += `<ul>${renderMenuItems(item.children, langCode)}</ul>`;
 		}
@@ -342,7 +186,7 @@ function renderMenuItems(items, langCode) {
 }
 function generateMenusByLocation(menuForLang, langCode) {
 	const result = {};
-	for (const menuObj of (menuForLang || [])) {
+	for (const menuObj of menuForLang || []) {
 		const location = menuObj.location || 'menu';
 		const itemsHtml = renderMenuItems(menuObj.items || [], langCode);
 		result[location] = `<ul class="menu menu-${escapeAttr(location)}">${itemsHtml}</ul>`;
@@ -393,20 +237,22 @@ function generateArticleListHtml(items, langCode) {
 		.filter(item => item.type === 'post')
 		.filter(item => item.content !== '')
 		.sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
+
 	if (sortedPosts.length === 0) return '';
+
 	let html = '<div class="articles">';
 	for (const post of sortedPosts) {
 		const href = `${langCode}/${post.slug}.html`;
 		const title = post.title || '';
 		const imgHtml = post.featured_image
-			? `${escapeAttr(href)}${escapeAttr(post.featured_image)}</a>`
+			? `<a class="article-card__thumb" href="${escapeAttr(href)}"><img src="${escapeAttr(post.featured_image)}" alt="${escapeAttr(title)}"></a>`
 			: '';
 		html += `
 <article class="article-card">
   ${imgHtml}
-  <h4 class="article-card__title">${escapeAttr(href)}${escapeHtml(title)}</a></h4>
+  <h4 class="article-card__title"><a href="${escapeAttr(href)}">${escapeHtml(title)}</a></h4>
   <p class="article-card__excerpt">${post.excerpt || ''}</p>
-  <p>${escapeAttr(href)}Číst dál</a></p>
+  <p><a href="${escapeAttr(href)}">Číst dál</a></p>
 </article>`;
 	}
 	html += '</div>';
@@ -416,6 +262,7 @@ function generateArticleListHtml(items, langCode) {
 // =======================
 // STAŽENÍ A PŘEPSÁNÍ VŠECH SOUBORŮ V HTML/CSS
 // =======================
+
 // --- CSS regexy ---
 const CSS_URL_RE = /url\(([^)]+)\)/gi;
 const CSS_IMPORT_RE = /@import\s+(?:url\()?["']?([^"')\s]+)["']?\)?/gi;
@@ -431,15 +278,18 @@ function mapRemoteToLocal(remoteUrl) {
 	if (!sameOrigin(remoteUrl, API_URL)) return null;
 	let u;
 	try { u = new URL(remoteUrl); } catch { return null; }
+
 	let pathname = decodeURIComponent(u.pathname || '/').replace(/^\/+/, ''); // bez leading '/'
 	if (pathname.toLowerCase().startsWith('wp-content/uploads/')) {
-		pathname = pathname.slice('wp-content/'.length); // => 'uploads/...'
+		// => 'uploads/...'
+		pathname = pathname.slice('wp-content/'.length);
 	}
 	const ext = extnameLower(pathname) || '.bin';
 	const dir = path.posix.dirname(pathname);
 	const base = path.posix.basename(pathname, ext);
 	const baseWithHash = u.search ? `${base}-${hash8(u.search)}` : base;
-	const relWebPath = toWebPath(dir, `${baseWithHash}${ext}`); // 'uploads/2026/02/file.jpg' nebo 'wp-content/themes/.../file.css'
+
+	const relWebPath = toWebPath(dir, `${baseWithHash}${ext}`);          // 'uploads/2026/02/file.jpg' nebo 'wp-content/themes/.../file.css'
 	const diskPath = path.join(STATIC_ROOT, relWebPath);
 	const publicWebPath = toWebPath(PUBLIC_STATIC_PREFIX_FROM_LANG, relWebPath);
 	return { diskPath, publicWebPath, absUrl: u.href };
@@ -452,7 +302,6 @@ async function fetchArrayBuffer(url) {
 	const ab = await res.arrayBuffer();
 	return { ab: Buffer.from(ab), headers: Object.fromEntries(res.headers.entries()) };
 }
-
 // --- Bezpečné obálky: neházejí výjimku, vrací true/false resp. {ok,text} ---
 async function safeDownloadBinary(remoteUrl, diskPath) {
 	try {
@@ -490,16 +339,20 @@ async function prefetchCssDependencies(remoteCssUrl, cssText) {
 	const urlCandidates = Array.from(cssText.matchAll(CSS_URL_RE))
 		.map(m => (m[1] || '').trim().replace(/^['"]|['"]$/g, ''))
 		.filter(Boolean);
+
 	const importCandidates = Array.from(cssText.matchAll(CSS_IMPORT_RE))
 		.map(m => (m[1] || '').trim())
 		.filter(Boolean);
+
 	const all = [...urlCandidates, ...importCandidates];
 	if (all.length === 0) return;
+
 	for (const ref of all) {
 		let abs;
 		try { abs = new URL(ref, remoteCssUrl).href; } catch { continue; }
 		const mapping = mapRemoteToLocal(abs);
 		if (!mapping) continue;
+
 		const ext = extnameLower(mapping.absUrl);
 		if (ext === '.css') {
 			const { ok, text } = await safeDownloadText(mapping.absUrl, mapping.diskPath);
@@ -513,7 +366,7 @@ async function prefetchCssDependencies(remoteCssUrl, cssText) {
 	}
 }
 
-// --- Parsování HTML tagů a atributů (pro localizeAssets – zůstává regex, protože řeší pouze atributy) ---
+// --- Parsování HTML tagů a atributů ---
 function parseTagAttributes(tagHtml) {
 	const attrs = {};
 	const attrRegex = /([\w:-]+)(\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
@@ -553,18 +406,19 @@ async function replaceTagsAsync(html, regex, replacer) {
 }
 
 // --- Inline style atributy: bezpečné přepsání url(...) jen při úspěchu ---
-const STYLE_ATTR_RE = /\bstyle\s*=\s*("([^"]*)"|'([^']*)')/gi;
 async function rewriteInlineStyleUrls(html) {
 	// Najdi všechny style="..."; zpracuj sekvenčně s await
 	const matches = [];
+	const re = /\bstyle\s*=\s*("([^"]*)"|'([^']*)')/gi;
 	let m;
-	while ((m = STYLE_ATTR_RE.exec(html)) !== null) {
+	while ((m = re.exec(html)) !== null) {
 		matches.push({ start: m.index, end: m.index + m[0].length, full: m[0], quoted: m[1] });
 	}
 	if (matches.length === 0) return html;
+
 	let out = html;
 	for (let i = matches.length - 1; i >= 0; i--) {
-		const { start, end, quoted } = matches[i];
+		const { start, end, full, quoted } = matches[i];
 		const styleVal = (quoted || '').slice(1, -1);
 		let newStyle = styleVal;
 		// Pro každé url(...) — jen absolutní http(s)
@@ -597,14 +451,15 @@ async function rewriteInlineStyleUrls(html) {
  *   inline style url(...) (bezpečně, jen při úspěchu), <style>…</style> (CSS závislosti se prefetchují)
  * - pouze pro URL ze stejného originu jako WP_API_URL
  */
-async function localizeAssets(html /*, langCode */) {
+async function localizeAssets(html, langCode) {
 	ensureDir(STATIC_ROOT);
 
 	// 1) <img ...> + data-src/srcset
-	const imgTagRegex = /\<img\b[^>]*\>/gi;
+	const imgTagRegex = /<img\b[^>]*>/gi;
 	html = await replaceTagsAsync(html, imgTagRegex, async (tag) => {
 		const attrs = parseTagAttributes(tag);
 		const urlCandidates = new Set();
+
 		['src', 'data-src'].forEach(k => { const v = attrs[k]; if (v && /^https?:\/\//i.test(v)) urlCandidates.add(v); });
 		['srcset', 'data-srcset'].forEach(k => {
 			const v = attrs[k];
@@ -613,6 +468,7 @@ async function localizeAssets(html /*, langCode */) {
 			});
 		});
 		if (urlCandidates.size === 0) return tag;
+
 		const urlMap = new Map();
 		for (const remoteUrl of urlCandidates) {
 			const map = mapRemoteToLocal(remoteUrl);
@@ -621,9 +477,11 @@ async function localizeAssets(html /*, langCode */) {
 			if (ok) urlMap.set(remoteUrl, map.publicWebPath);
 		}
 		if (urlMap.size === 0) return tag;
+
 		let newTag = tag;
 		if (attrs['src'] && urlMap.has(attrs['src'])) newTag = replaceAttrValue(newTag, 'src', urlMap.get(attrs['src']));
 		if (attrs['data-src'] && urlMap.has(attrs['data-src'])) newTag = replaceAttrValue(newTag, 'data-src', urlMap.get(attrs['data-src']));
+
 		if (attrs['srcset']) {
 			const rebuilt = attrs['srcset'].split(',').map(s => s.trim()).filter(Boolean).map(entry => {
 				const [u, ...rest] = entry.split(/\s+/);
@@ -649,7 +507,7 @@ async function localizeAssets(html /*, langCode */) {
 	});
 
 	// 2) <source ...> (uvnitř <picture> i <video>)
-	const sourceTagRegex = /\<source\b[^>]*\>/gi;
+	const sourceTagRegex = /<source\b[^>]*>/gi;
 	html = await replaceTagsAsync(html, sourceTagRegex, async (tag) => {
 		const attrs = parseTagAttributes(tag);
 		if (attrs['src'] && /^https?:\/\//i.test(attrs['src'])) {
@@ -678,13 +536,15 @@ async function localizeAssets(html /*, langCode */) {
 	});
 
 	// 3) <link ...> (stylesheet, icon, manifest, preload...)
-	const linkTagRegex = /\<link\b[^>]*\>/gi;
+	const linkTagRegex = /<link\b[^>]*>/gi;
 	html = await replaceTagsAsync(html, linkTagRegex, async (tag) => {
 		const attrs = parseTagAttributes(tag);
 		const href = attrs['href'];
 		if (!href || !/^https?:\/\//i.test(href)) return tag;
+
 		const map = mapRemoteToLocal(href);
 		if (!map) return tag;
+
 		const ext = extnameLower(map.absUrl);
 		if (ext === '.css') {
 			const { ok, text } = await safeDownloadText(map.absUrl, map.diskPath);
@@ -697,7 +557,7 @@ async function localizeAssets(html /*, langCode */) {
 	});
 
 	// 4) <script src=...>
-	const scriptTagRegex = /\<script\b[^>]*\bsrc\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>\s*<\/script>/gi;
+	const scriptTagRegex = /<script\b[^>]*\bsrc\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>\s*<\/script>/gi;
 	html = await replaceTagsAsync(html, scriptTagRegex, async (tag) => {
 		const attrs = parseTagAttributes(tag);
 		const src = attrs['src'];
@@ -709,7 +569,7 @@ async function localizeAssets(html /*, langCode */) {
 	});
 
 	// 5) <a href=...> — pouze „soubory“, nikoli HTML stránky
-	const anchorTagRegex = /\<a\b[^>]*\>/gi;
+	const anchorTagRegex = /<a\b[^>]*>/gi;
 	html = await replaceTagsAsync(html, anchorTagRegex, async (tag) => {
 		const attrs = parseTagAttributes(tag);
 		const href = attrs['href'];
@@ -723,11 +583,11 @@ async function localizeAssets(html /*, langCode */) {
 
 	// 6) <video>, <audio>, <track>, <object data>, <embed src>
 	const genericTags = [
-		{ re: /\<video\b[^>]*\>/gi, attrs: ['src', 'poster'] },
-		{ re: /\<audio\b[^>]*\>/gi, attrs: ['src'] },
-		{ re: /\<track\b[^>]*\>/gi, attrs: ['src'] },
-		{ re: /\<object\b[^>]*\>/gi, attrs: ['data'] },
-		{ re: /\<embed\b[^>]*\>/gi, attrs: ['src'] },
+		{ re: /<video\b[^>]*>/gi, attrs: ['src', 'poster'] },
+		{ re: /<audio\b[^>]*>/gi, attrs: ['src'] },
+		{ re: /<track\b[^>]*>/gi, attrs: ['src'] },
+		{ re: /<object\b[^>]*>/gi, attrs: ['data'] },
+		{ re: /<embed\b[^>]*>/gi, attrs: ['src'] },
 	];
 	for (const g of genericTags) {
 		html = await replaceTagsAsync(html, g.re, async (tag) => {
@@ -751,9 +611,13 @@ async function localizeAssets(html /*, langCode */) {
 	html = await rewriteInlineStyleUrls(html);
 
 	// 8) <style> bloky – jen prefetch závislostí (obsah beze změny)
-	const styleBlockRegex = /\<style\b[^>]*\>([\s\S]*?)\<\/style\>/gi;
+	const styleBlockRegex = /<style\b[^>]*>[\s\S]*?<\/style>/gi;
 	html = await replaceTagsAsync(html, styleBlockRegex, async (tag) => {
-		// Inline CSS nemá vlastní URL; ponecháme obsah, případné absolutní URL pokryje rewriteInlineStyleUrls
+		const m = tag.match(/<style\b[^>]*>([\s\S]*?)<\/style>/i);
+		const css = (m && m[1]) || '';
+		if (!css) return tag;
+		// Inline CSS nemá vlastní URL, prefetch zde nedává smysl,
+		// ale typicky neobsahuje absolutní http(s) URL; pokud ano, řeší rewriteInlineStyleUrls.
 		return tag;
 	});
 
@@ -805,6 +669,7 @@ async function buildOneLanguage(lang) {
 		const fileName = `${item.slug}.html`;
 		validFiles.add(fileName);
 		const cacheKey = `${item.id}`;
+
 		if (cache[cacheKey] && cache[cacheKey].modified === item.modified) {
 			newCache[cacheKey] = cache[cacheKey];
 		} else {
@@ -851,16 +716,7 @@ async function buildOneLanguage(lang) {
   <h3>${escapeHtml(pageMeta.title || '')}</h3>
   ${pageMeta.content || ''}
 </section>`;
-
-			// DOM injektáž + filtrace šablony (NE-index => odstranit HTML bloky + .onlyIndex)
-			let finalHtml = injectToTemplateDOM(
-				templateHtml,
-				pageContent,
-				{ ...pageMeta, menus: menusByLocation },
-				{ removeOnlyIndex: true } // <-- klíčové: na všech stránkách kromě indexu
-			);
-
-			// Lokalizace assetů
+			const finalHtml = injectToTemplate(templateHtml, pageContent, { ...pageMeta, menus: menusByLocation });
 			let localizedHtml = await localizeAssets(finalHtml, lang.code);
 			localizedHtml = await rewriteInlineStyleUrls(localizedHtml); // jistota pro inline styly
 			fs.writeFileSync(path.join(lang.outDir, fileName), localizedHtml, ENCODING);
@@ -869,25 +725,20 @@ async function buildOneLanguage(lang) {
 
 	// 5) Jazykový INDEX a 404
 	const articleListHtml = generateArticleListHtml(allItemsData, lang.code);
-
-	// index.html -> ponechat HTML bloky a .onlyIndex (removeOnlyIndex: false)
-	let indexHtml = injectToTemplateDOM(
+	let indexHtml = injectToTemplate(
 		templateHtml,
 		`<section class="home"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</section>`,
-		{ title: lang.homeTitle, menus: menusByLocation, lang: lang.code },
-		{ removeOnlyIndex: false }
+		{ title: lang.homeTitle, menus: menusByLocation, lang: lang.code }
 	);
 	ensureDir(lang.outDir);
 	indexHtml = await localizeAssets(indexHtml, lang.code);
 	indexHtml = await rewriteInlineStyleUrls(indexHtml);
 	fs.writeFileSync(path.join(lang.outDir, 'index.html'), indexHtml, ENCODING);
 
-	// 404.html -> odstranit HTML bloky a .onlyIndex
-	let errorHtml = injectToTemplateDOM(
+	let errorHtml = injectToTemplate(
 		templateHtml,
 		`<section class="not-found"><h3>${escapeHtml(lang.notFoundTitle)}</h3></section>`,
-		{ title: lang.notFoundTitle, menus: menusByLocation, lang: lang.code },
-		{ removeOnlyIndex: true }
+		{ title: lang.notFoundTitle, menus: menusByLocation, lang: lang.code }
 	);
 	errorHtml = await localizeAssets(errorHtml, lang.code);
 	errorHtml = await rewriteInlineStyleUrls(errorHtml);
