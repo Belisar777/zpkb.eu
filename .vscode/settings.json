@@ -31,5 +31,6 @@
 	"editor.formatOnSave": true,
 	"emmet.includeLanguages": {
 		"php": "html"
-	}
+	},
+	"liveServer.settings.port": 8081
 }

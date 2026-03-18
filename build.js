@@ -206,19 +206,50 @@ function generateArticleListHtml(items, langCode) {
 		.filter(item => item.type === 'post')
 		.filter(item => item.content !== '')
 		.sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
+
 	if (sortedPosts.length === 0) return '';
-	let html = '<div class="articles">';
+
+	let html = '<div class="posts">';
+
 	for (const post of sortedPosts) {
-		const href = `${langCode}/${post.slug}.html`;
+		const href = post.url || `${langCode}/${post.slug}.html`;
 		const title = post.title || '';
-		const imgHtml = post.featured_image
-			? `<a class="article-card__thumb" href="${escapeAttr(href)}"><img src="${escapeAttr(post.featured_image)}" alt="${escapeAttr(title)}"></a>`
-			: '';
-		html += `\n<article class="article-card">\n  ${imgHtml}\n  <h4 class="article-card__title"><a href="${escapeAttr(href)}">${escapeHtml(title)}</a></h4>\n  <p class="article-card__excerpt">${post.excerpt || ''}</p>\n  <p><a href="${escapeAttr(href)}">Číst dál</a></p>\n</article>`;
+		const excerpt = post.excerpt || '';
+		const img = post.featured_image || '';
+		const imgWidth = post.img_width || '1000';
+		const imgHeight = post.img_height || '1000';
+		const imgSrcset = post.srcset || '';
+		const imgSizes = post.sizes || '(max-width: 1000px) 100vw, 1000px';
+		const imgAlt = post.alt || title;
+
+		html += `
+<div class="postPreview">
+    <a href="${escapeAttr(href)}">
+        ${img ? `
+        <img 
+            width="${imgWidth}" 
+            height="${imgHeight}" 
+            src="${escapeAttr(img)}"
+            alt="${escapeAttr(imgAlt)}"
+            class="attachment-medium size-medium wp-post-image"
+            decoding="async"
+            ${imgSrcset ? `srcset="${escapeAttr(imgSrcset)}"` : ''}
+            sizes="${escapeAttr(imgSizes)}"
+        >` : ''}
+    </a>
+
+    <h4><a href="${escapeAttr(href)}">${escapeHtml(title)}</a></h4>
+
+    <p>${excerpt}</p>
+
+    <a class="button" href="${escapeAttr(href)}">Číst více</a>
+</div>`;
 	}
-	html += '</div>';
+
+	html += '\n<div class="pagination"></div>\n</div>';
 	return html;
 }
+
 
 // =======================
 // STAŽENÍ A PŘEPSÁNÍ VŠECH SOUBORŮ V HTML/CSS
