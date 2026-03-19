@@ -249,7 +249,6 @@ function generateArticleListHtml(items, langCode) {
 	return html;
 }
 
-
 // =======================
 // STAŽENÍ A PŘEPSÁNÍ VŠECH SOUBORŮ V HTML/CSS
 // =======================
@@ -552,6 +551,33 @@ function injectContentAndMenus(dom, { contentHtml, menusByLocation, isIndex, lan
 	} else {
 		// na ostatních stránkách odstranit celý element
 		for (const el of onlyIndexEls) el.remove();
+	}
+
+
+	const translateEls = Array.from(doc.querySelectorAll('[translate]'));
+
+	for (const el of translateEls) {
+
+		if (langCode != "cs") {
+			el.textContent = el.getAttribute(langCode);
+		}
+
+		el.removeAttribute('translate');
+		el.removeAttribute('en');
+		el.removeAttribute('fr');
+	}
+
+	const translateSrcEls = Array.from(doc.querySelectorAll('[translate-src]'));
+
+	for (const el of translateSrcEls) {
+
+		if (langCode != "cs") {
+			el.setAttribute('src', el.getAttribute(langCode));
+		}
+
+		el.removeAttribute('translate-src');
+		el.removeAttribute('en');
+		el.removeAttribute('fr');
 	}
 
 	// obsah do #wpContent
