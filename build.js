@@ -41,9 +41,9 @@ const ENCODING = 'utf8';
 
 // Jazyky – každý má vlastní složku i prefix v URL
 const LANGS = [
-	{ code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'News', notFoundTitle: '404 - Page not found' },
-	{ code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Nouvelles', notFoundTitle: '404 - Page introuvable' },
-	{ code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Novinky', notFoundTitle: '404 - Stránka nenalezena' },
+	{ code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'News', notFoundTitle: '404 - Page not found', moreButtonText: 'Read more' },
+	{ code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Nouvelles', notFoundTitle: '404 - Page introuvable', moreButtonText: 'En savoir plus' },
+	{ code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Novinky', notFoundTitle: '404 - Stránka nenalezena', moreButtonText: 'Číst více' },
 ];
 
 // Uložiště lokálních souborů (společné pro všechny jazyky)
@@ -201,7 +201,7 @@ function buildSitemapIndexXml(sitemaps) {
 // =======================
 // GENEROVÁNÍ VÝPISU ČLÁNKŮ (validní HTML)
 // =======================
-function generateArticleListHtml(items, langCode) {
+function generateArticleListHtml(items, langCode, moreButtonText) {
 	const sortedPosts = (items || [])
 		.filter(item => item.type === 'post')
 		.filter(item => item.content !== '')
@@ -242,7 +242,7 @@ function generateArticleListHtml(items, langCode) {
 
     <p>${excerpt}</p>
 
-    <a class="button" href="${escapeAttr(href)}">Číst více</a>
+    <a class="button" href="${escapeAttr(href)}">${moreButtonText}</a>
 </div>`;
 	}
 
@@ -699,7 +699,7 @@ async function buildOneLanguage(lang) {
 	}
 
 	// 5) Jazykový INDEX a 404 (DOM)
-	const articleListHtml = generateArticleListHtml(allItemsData, lang.code);
+	const articleListHtml = generateArticleListHtml(allItemsData, lang.code, lang.moreButtonText);
 	const indexContent = `<div class="main"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</div>`;
 	const indexHtml = await buildDomPage({
 		templateHtml,
