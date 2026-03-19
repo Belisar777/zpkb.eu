@@ -246,7 +246,6 @@ function generateArticleListHtml(items, langCode) {
 </div>`;
 	}
 
-	html += '\n<div class="pagination"></div>\n</div>';
 	return html;
 }
 
@@ -675,7 +674,7 @@ async function buildOneLanguage(lang) {
 
 	// 5) Jazykový INDEX a 404 (DOM)
 	const articleListHtml = generateArticleListHtml(allItemsData, lang.code);
-	const indexContent = `<section class="home"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</section>`;
+	const indexContent = `<div class="main"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</div>`;
 	const indexHtml = await buildDomPage({
 		templateHtml,
 		contentHtml: indexContent,
@@ -686,7 +685,7 @@ async function buildOneLanguage(lang) {
 	ensureDir(lang.outDir);
 	fs.writeFileSync(path.join(lang.outDir, 'index.html'), indexHtml, ENCODING);
 
-	const errorContent = `<section class="not-found"><h3>${escapeHtml(lang.notFoundTitle)}</h3></section>`;
+	const errorContent = `<div class="main"><h3>${escapeHtml(lang.notFoundTitle)}</h3></div>`;
 	const errorHtml = await buildDomPage({
 		templateHtml,
 		contentHtml: errorContent,
