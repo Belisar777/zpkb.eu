@@ -227,21 +227,19 @@ function generateArticleListHtml(items, langCode, moreButtonText) {
     <a href="${escapeAttr(href)}">
         ${img ? `
         <img 
-            width="${imgWidth}" 
-            height="${imgHeight}" 
-            src="${escapeAttr(img)}"
-            alt="${escapeAttr(imgAlt)}"
-            class="attachment-medium size-medium wp-post-image"
-            decoding="async"
-            ${imgSrcset ? `srcset="${escapeAttr(imgSrcset)}"` : ''}
-            sizes="${escapeAttr(imgSizes)}"
+					width="${imgWidth}" 
+					height="${imgHeight}" 
+					src="${escapeAttr(img)}"
+					alt="${escapeAttr(imgAlt)}"
+					class="attachment-medium size-medium wp-post-image"
+					decoding="async"
+					${imgSrcset ? `srcset="${escapeAttr(imgSrcset)}"` : ''}
+					sizes="${escapeAttr(imgSizes)}"
         >` : ''}
     </a>
 
     <h4><a href="${escapeAttr(href)}">${escapeHtml(title)}</a></h4>
-
     <p>${excerpt}</p>
-
     <a class="button" href="${escapeAttr(href)}">${moreButtonText}</a>
 </div>`;
 	}
