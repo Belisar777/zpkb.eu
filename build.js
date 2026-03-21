@@ -578,6 +578,19 @@ function injectContentAndMenus(dom, { contentHtml, menusByLocation, isIndex, lan
 		el.removeAttribute('fr');
 	}
 
+	const translateHrefEls = Array.from(doc.querySelectorAll('[translate-href]'));
+
+	for (const el of translateHrefEls) {
+
+		if (langCode != "cs") {
+			el.setAttribute('href', el.getAttribute(langCode + "-href"));
+		}
+
+		el.removeAttribute('translate-href');
+		el.removeAttribute('en');
+		el.removeAttribute('fr');
+	}
+
 	// obsah do #wpContent
 	const wpContent = doc.getElementById('wpContent');
 	if (!wpContent) throw new Error('Template error: chybí element s id="wpContent"');
