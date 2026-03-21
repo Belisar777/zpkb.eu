@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-03-21T20:22:24.091Z</lastmod>
+    <lastmod>2026-03-21T20:23:55.472Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/contacts.html</loc>
+    <lastmod>2026-03-21T20:23:35.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/a-propos-de-nous.html</loc>
@@ -51,12 +57,6 @@
   <url>
     <loc>https://zpkb.eu/fr/parametres-des-cookies.html</loc>
     <lastmod>2026-03-10T21:21:41.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/contacts.html</loc>
-    <lastmod>2026-03-10T21:10:55.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
