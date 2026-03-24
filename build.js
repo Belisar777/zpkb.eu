@@ -81,7 +81,7 @@ function copyDirRecursive(src, dest, excludeFile) {
 	}
 }
 
-function f(langs) {
+function generateLanguageRedirect(langs) {
 	const targetPath = path.join(ROOT_DIST, 'index.html');
 	const def = langs[langs.length - 1];
 	const langCases = langs.slice(0, -1).map(l => `if (short === "${l.code}") location.replace("${l.urlPrefix}/");`).join('\n      ');
