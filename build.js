@@ -573,12 +573,12 @@ function injectContentAndMenus(dom, { contentHtml, menusByLocation, isIndex, lan
 		const attrName = el.getAttribute('translate-attribute');
 
 		if (langCode != "cs") {
-			el.setAttribute(attrName, el.getAttribute(langCode));
+			el.setAttribute(attrName, el.getAttribute(`${attrName}-${langCode}`));
 		}
 
-		el.removeAttribute(attrName);
-		el.removeAttribute('en');
-		el.removeAttribute('fr');
+		el.removeAttribute("translate-attribute");
+		el.removeAttribute(`${attrName}-en`);
+		el.removeAttribute(`${attrName}-fr`);
 	}
 
 
