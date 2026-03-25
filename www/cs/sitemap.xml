@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-03-25T20:58:50.169Z</lastmod>
+    <lastmod>2026-03-25T21:00:01.715Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/cs/15-vyroci-ceske-skoly-bez-hranic.html</loc>
+    <lastmod>2026-03-25T20:59:35.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/cs/o-nas.html</loc>
