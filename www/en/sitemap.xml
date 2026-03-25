@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-25T17:16:25.593Z</lastmod>
+    <lastmod>2026-03-25T19:11:08.458Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/internships-for-students.html</loc>
-    <lastmod>2026-03-25T16:40:19.000Z</lastmod>
+    <loc>https://zpkb.eu/en/about-us.html</loc>
+    <lastmod>2026-03-25T19:10:47.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zpkb.eu/en/about-us.html</loc>
-    <lastmod>2026-03-21T20:38:45.000Z</lastmod>
+    <loc>https://zpkb.eu/en/internships-for-students.html</loc>
+    <lastmod>2026-03-25T16:40:19.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
