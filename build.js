@@ -41,10 +41,13 @@ const ENCODING = 'utf8';
 
 // Jazyky – každý má vlastní složku i prefix v URL
 const LANGS = [
-	{ code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), homeTitle: 'News', notFoundTitle: '404 - Page not found', moreButtonText: 'Read more' },
-	{ code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), homeTitle: 'Nouvelles', notFoundTitle: '404 - Page introuvable', moreButtonText: 'En savoir plus' },
-	{ code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), homeTitle: 'Novinky', notFoundTitle: '404 - Stránka nenalezena', moreButtonText: 'Číst více' },
+	{ code: 'en', urlPrefix: 'en', outDir: path.join(ROOT_DIST, 'en'), newsCategoriesPage: 'news.html', homeTitle: 'News', notFoundTitle: '404 - Page not found', moreButtonText: 'Read more' },
+	{ code: 'fr', urlPrefix: 'fr', outDir: path.join(ROOT_DIST, 'fr'), newsCategoriesPage: 'nouvelles.html', homeTitle: 'Nouvelles', notFoundTitle: '404 - Page introuvable', moreButtonText: 'En savoir plus' },
+	{ code: 'cs', urlPrefix: 'cs', outDir: path.join(ROOT_DIST, 'cs'), newsCategoriesPage: 'novinky.html', homeTitle: 'Novinky', notFoundTitle: '404 - Stránka nenalezena', moreButtonText: 'Číst více' },
 ];
+
+
+
 
 // Uložiště lokálních souborů (společné pro všechny jazyky)
 const STATIC_ROOT = path.join(ROOT_DIST, 'imgWP'); // www/imgWP/...
@@ -201,7 +204,7 @@ function buildSitemapIndexXml(sitemaps) {
 // =======================
 // GENEROVÁNÍ VÝPISU ČLÁNKŮ (validní HTML)
 // =======================
-function generateArticleListHtml(items, langCode, moreButtonText) {
+function generateArticleListHtml(items, langCode, moreButtonText, maxArticles = 1000) {
 	const sortedPosts = (items || [])
 		.filter(item => item.type === 'post')
 		.filter(item => item.content !== '')
@@ -211,7 +214,7 @@ function generateArticleListHtml(items, langCode, moreButtonText) {
 
 	let html = '<div class="posts">';
 
-	for (const post of sortedPosts) {
+	for (const post of sortedPosts.slice(0, maxArticles)) {
 		const href = post.url || `${langCode}/${post.slug}.html`;
 		const title = post.title || '';
 		const excerpt = post.excerpt || '';
@@ -242,6 +245,7 @@ function generateArticleListHtml(items, langCode, moreButtonText) {
     <p>${excerpt}</p>
     <a class="button" href="${escapeAttr(href)}">${moreButtonText}</a>
 </div>`;
+
 	}
 
 	return html;
@@ -622,7 +626,7 @@ async function buildOneLanguage(lang) {
 	const CACHE_FILE = path.join(__dirname, `cache.${lang.code}.json`);
 	let cache = fs.existsSync(CACHE_FILE) ? JSON.parse(fs.readFileSync(CACHE_FILE, ENCODING)) : {};
 	const newCache = {};
-	const validFiles = new Set(['index.html', '404.html']);
+	const validFiles = new Set(['index.html', '404.html', 'novinky.html']);
 	const allItemsData = [];
 
 	// 1) INDEX – přehled položek
@@ -701,11 +705,11 @@ async function buildOneLanguage(lang) {
 	}
 
 	// 5) Jazykový INDEX a 404 (DOM)
-	const articleListHtml = generateArticleListHtml(allItemsData, lang.code, lang.moreButtonText);
-	const indexContent = `<div class="main"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</div>`;
+	let articleListHtml = generateArticleListHtml(allItemsData, lang.code, lang.moreButtonText, 3);
+
 	const indexHtml = await buildDomPage({
 		templateHtml,
-		contentHtml: indexContent,
+		contentHtml: `<div class="main"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</div>`,
 		menusByLocation,
 		isIndex: true, // only-index ponechat (bez atributu)
 		langCode: lang.code,
@@ -713,10 +717,21 @@ async function buildOneLanguage(lang) {
 	ensureDir(lang.outDir);
 	fs.writeFileSync(path.join(lang.outDir, 'index.html'), indexHtml, ENCODING);
 
-	const errorContent = `<div class="main"><h3>${escapeHtml(lang.notFoundTitle)}</h3></div>`;
+
+	articleListHtml = generateArticleListHtml(allItemsData, lang.code, lang.moreButtonText);
+	const newsCategoriesHtml = await buildDomPage({
+		templateHtml,
+		contentHtml: `<div class="main"><h3>${escapeHtml(lang.homeTitle)}</h3>${articleListHtml}</div>`,
+		menusByLocation,
+		isIndex: false,
+		langCode: lang.code,
+	});
+	ensureDir(lang.outDir);
+	fs.writeFileSync(path.join(lang.outDir, lang.newsCategoriesPage), newsCategoriesHtml, ENCODING);
+
 	const errorHtml = await buildDomPage({
 		templateHtml,
-		contentHtml: errorContent,
+		contentHtml: `<div class="main"><h3>${escapeHtml(lang.notFoundTitle)}</h3></div>`,
 		menusByLocation,
 		isIndex: false,
 		langCode: lang.code,
