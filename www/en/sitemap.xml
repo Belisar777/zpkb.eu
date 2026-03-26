@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-03-26T17:13:52.379Z</lastmod>
+    <lastmod>2026-03-26T17:26:58.221Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/en/silne-regiony-evropy.html</loc>
+    <lastmod>2026-03-26T17:26:13.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/en/prazsky-primator-v-bruselu.html</loc>
