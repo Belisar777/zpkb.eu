@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-03-26T09:27:36.690Z</lastmod>
+    <lastmod>2026-03-26T09:28:33.761Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://zpkb.eu/fr/15-anniversaire-lecole-tcheque-sans-frontieres.html</loc>
+    <lastmod>2026-03-26T09:28:13.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/cooperation-entre-universites-europeennes.html</loc>
+    <lastmod>2026-03-26T09:28:13.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://zpkb.eu/fr/semaine-europeenne-des-villes-et-des-regions.html</loc>
-    <lastmod>2026-03-25T22:05:16.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/spoluprace-evropskych-univerzit.html</loc>
-    <lastmod>2026-03-25T21:40:10.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/15-vyroci-ceske-skoly-bez-hranic.html</loc>
-    <lastmod>2026-03-25T20:59:35.000Z</lastmod>
+    <lastmod>2026-03-26T09:28:12.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
