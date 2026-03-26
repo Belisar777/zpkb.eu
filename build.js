@@ -208,7 +208,8 @@ function generateArticleListHtml(items, langCode, moreButtonText, maxArticles = 
 	const sortedPosts = (items || [])
 		.filter(item => item.type === 'post')
 		.filter(item => item.content !== '')
-		.sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
+		.sort((a, b) => new Date(b.date) - new Date(a.date));
+	// .sort((a, b) => new Date(b.date || b.modified) - new Date(a.date || a.modified));
 
 	if (sortedPosts.length === 0) return '';
 
@@ -705,7 +706,7 @@ async function buildOneLanguage(lang) {
 	}
 
 	// 5) Jazykový INDEX a 404 (DOM)
-	let articleListHtml = generateArticleListHtml(allItemsData, lang.code, lang.moreButtonText, 3);
+	let articleListHtml = generateArticleListHtml(allItemsData, lang.code, lang.moreButtonText, 6);
 
 	const indexHtml = await buildDomPage({
 		templateHtml,
