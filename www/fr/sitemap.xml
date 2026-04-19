@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/fr/</loc>
-    <lastmod>2026-04-19T11:41:48.116Z</lastmod>
+    <lastmod>2026-04-19T11:53:15.788Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/fr/evenements.html</loc>
+    <lastmod>2026-04-19T11:52:57.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/fr/des-regions-fortes-pour-leurope.html</loc>
@@ -75,12 +81,6 @@
   <url>
     <loc>https://zpkb.eu/fr/contacts.html</loc>
     <lastmod>2026-03-21T20:27:40.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zpkb.eu/fr/evenements.html</loc>
-    <lastmod>2026-03-13T11:20:16.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
