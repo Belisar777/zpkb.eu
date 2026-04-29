@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-04-29T12:22:00.577Z</lastmod>
+    <lastmod>2026-04-29T12:28:50.045Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/cs/vernisaz-bohumila-bimby-konecneho.html</loc>
+    <lastmod>2026-04-29T12:28:04.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/cs/akce.html</loc>
