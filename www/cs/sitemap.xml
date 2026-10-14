@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/cs/</loc>
-    <lastmod>2026-10-14T10:56:17.639Z</lastmod>
+    <lastmod>2026-10-14T10:57:05.927Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/cs/budoucnost-regionu-umela-inteligence-i-evropske-dotace.html</loc>
+    <lastmod>2026-10-14T10:56:31.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/cs/czech-street-party-opet-roztancila-brusel.html</loc>
