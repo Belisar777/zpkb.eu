@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://zpkb.eu/en/</loc>
-    <lastmod>2026-10-26T21:46:11.575Z</lastmod>
+    <lastmod>2026-10-26T21:47:15.532Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zpkb.eu/en/jak-pripravit-studenty-na-budoucnost-s-umelou-inteligenci.html</loc>
+    <lastmod>2026-10-26T21:46:34.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://zpkb.eu/en/kultura-jako-cesta-ke-zdravejsim-a-spokojenejsim-regionum.html</loc>
